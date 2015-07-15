@@ -15,26 +15,43 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <div class="input-field">
-          <i class="material-icons prefix">search</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search Events...</label>
-        </div>
+
         <a href="#" class="brand-logo center">bridge</a>
         <ul class="left hide-on-med-and-down">
-          <li><a href="sass.html">Log In</a></li>
-          <li><a href="badges.html">Register</a></li>
-          <li><a href="collapsible.html">About</a></li>
+          <li><a class="modal-trigger" href="#login_modal">Log In</a></li>
+          <li><a class="modal-trigger" href="#register_modal">Register</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-
+        <ul class="right hide-on-med-and-down">
+          <li><a class="modal-trigger" href="#login_modal">Log In</a></li>
+          <li><a class="modal-trigger" href="#register_modal">Register</a></li>
+        </ul>
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="sass.html">Log In</a></li>
-          <li><a href="badges.html">Register</a></li>
-          <li><a href="collapsible.html">About</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>
+  </div>
+  <div id="login_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Log In</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
+  <div id="register_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Register</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
   </div>
   <div class="container">
     <p></p>

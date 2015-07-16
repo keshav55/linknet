@@ -91,6 +91,9 @@ $("#vol #register").click(function(){
 			$("#vol #register").removeClass('disabled');
 			$("#vol #register").html("Register");
 		} else {
+			ref.authWithPassword({
+				email    : regemail,
+				password : regpass
 			}, function(error, authData) {
 			    ref.child("users").child(authData.uid).set({
 			      type: "volunteer",

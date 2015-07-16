@@ -3,6 +3,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 nav {
-    background-color: #40d47e !important;
+    background-color: #333 !important;
 
+}
+.brand-logo::first-letter { 
+    font-size: 200%;
+    color: #40d47e;
 }

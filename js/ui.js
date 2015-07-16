@@ -1,6 +1,7 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
+	alert("TE");
 	if (authData) {
 		$(".l_o").remove();
 		$(".l_i").fadeIn();

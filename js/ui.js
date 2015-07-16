@@ -8,17 +8,18 @@ function authDataCallback(authData) {
 	if (authData) {
 	    // save the user's profile into the database so we can list users,
 	    // use them in Security and Firebase Rules, and show profiles
-	    ref.child("users").child(authData.uid).set({
-	      provider: authData.provider,
-	      name: getName(authData), 
-	      email: getEmail(authData),
-	      image: getImage(authData)
-	    });
+
 		var uref = new Firebase("https://bridgecom.firebaseio.com/"+authData.uid+"/user_type");
 	    uref.once("value", function(data) {
 		  console.log(data);
 		  if(data){
-		  	jQuery.noop();
+		    ref.child("users").child(authData.uid).child("provider").set({
+		      provider: authData.provider,
+		      name: getName(authData), 
+		      type: data,
+		      email: getEmail(authData),
+		      image: getImage(authData)
+		    });
 		  } else {
 		  	window.location.replace("http://keshav55.github.io/linknet/verify");
 		  }

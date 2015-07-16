@@ -19,8 +19,12 @@ function authDataCallback(authData) {
 		    	window.location.replace("http://keshav55.github.io/linknet/verify");
 		    });
 		  }		  
+			$(".l_i").fadeIn();
+			$("#type").text(snapshot.child("users").child(authData.uid).child("type").val());
+			$("#name").text(snapshot.child("users").child(authData.uid).child("name").val());
+			$("#email").text(snapshot.child("users").child(authData.uid).child("email").val());
 		});
-		$(".l_i").fadeIn();
+
 	} else {
 		window.location.replace("http://keshav55.github.io/linknet");
 	}

@@ -7,7 +7,7 @@ function authDataCallback(authData) {
 	}
 	if (authData) {
 		ref.once('value', function(snapshot) {
-		  if (snapshot.hasChild(authData.uid)) {
+		  if (snapshot.child("users").hasChild(authData.uid)) {
 			  if (snapshot.child(authData.uid).hasChild("type")) {
 			    jQuery.noop();
 			  } else {

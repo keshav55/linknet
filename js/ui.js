@@ -14,7 +14,8 @@ function authDataCallback(authData) {
 	      email: getEmail(authData),
 	      image: getImage(authData)
 	    });
-	    ref.child("users").child(authData.uid).child("type").once("value", function(data) {
+		var uref = new Firebase("https://bridgecom.firebaseio.com/"+authData.uid+"/type");
+	    uref.once("value", function(data) {
 		  console.log(data);
 		  if(data){
 		  	jQuery.noop();

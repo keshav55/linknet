@@ -3,8 +3,8 @@ function authDataCallback(authData) {
 	var authData = ref.getAuth();
 	if (authData) {
 		ref.once('value', function(snapshot) {
-		  if (snapshot.hasChild(authData.uid)) {
-			  if (snapshot.child(authData.uid).hasChild("type")) {
+		  if (snapshot.child("users").hasChild(authData.uid)) {
+			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
 			  	alert("1");
 			    window.location.replace("http://keshav55.github.io/linknet");
 			  } else {

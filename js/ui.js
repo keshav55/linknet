@@ -13,7 +13,7 @@ function authDataCallback(authData) {
 	    uref.once("value", function(data) {
 		  console.log(data);
 		  if(data){
-		    ref.child("users").child(authData.uid).child("provider").set({
+		    ref.child("users").child(authData.uid).set({
 		      provider: authData.provider,
 		      name: getName(authData), 
 		      type: data,

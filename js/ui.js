@@ -5,7 +5,7 @@ function authDataCallback(authData) {
 	  $(".l_o").remove();
 	  $(".l_i").fadeIn();
 	} else {
-	  $(".l_o").fadIn();
+	  $(".l_o").fadeIn();
 	  $(".l_i").remove();
 	}
 }

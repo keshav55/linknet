@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="img/logo.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> 
   <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -27,8 +26,10 @@
           <li><a href="/contact">Contact</a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-          <li><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li><a class="modal-trigger" href="#register_modal">Register</a></li>
+          <li><a class="modal-trigger l_o" href="#login_modal">Log In</a></li>
+          <li><a class="modal-trigger l_o" href="#register_modal">Register</a></li>
+          <li><a class="modal-trigger l_i" href="/profile">Profile</a></li>
+          <li><a class="modal-trigger l_i" id="logout" href="#register_modal">Log Out</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -36,24 +37,55 @@
       </div>
     </nav>
   </div>
-  <div id="login_modal" class="modal modal-fixed-footer">
+  <div id="register_modal" class="modal">
+    <div class="modal-content">
+      <h4 >Register</h4>
+      <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
+      <form class="col s12">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="regemail" type="email" class="validate">
+            <label for="regemail" data-error="Invalid">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="regpass" type="password" class="validate">
+            <label for="regpass">Password</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
+    </div>
+  </div>
+  <div id="login_modal" class="modal">
     <div class="modal-content">
       <h4>Log In</h4>
-      <p>A bunch of text</p>
+      <p id="logtitle" class="red-text">There was an error. Consider revising and try again.</p>
+      <form class="col s12">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="logemail" type="email" class="validate">
+            <label for="logemail" data-error="Invalid">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="logpass" type="password" class="validate">
+            <label for="logpass">Password</label>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-  </div>
-  <div id="register_modal" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Register</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-  </div>
   <div class="container">
     <p></p>
     <div class="row">

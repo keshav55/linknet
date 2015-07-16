@@ -8,7 +8,7 @@ function authDataCallback(authData) {
 	if (authData) {
 		ref.once('value', function(snapshot) {
 		  if (snapshot.child("users").hasChild(authData.uid)) {
-			  if (snapshot.child(authData.uid).hasChild("type")) {
+			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
 			    jQuery.noop();
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");

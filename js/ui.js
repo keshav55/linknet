@@ -1,5 +1,4 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
-
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
 
@@ -50,56 +49,26 @@ function getImage(authData) {
   }
 }
 ref.onAuth(authDataCallback);
-$("#org #register").click(function(){
+
+$("#register").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
-	var regemail = $("#org #regemail").val();
-	var regpass = $("#org #regpass").val();
+	var regemail = $("#regemail").val();
+	var regpass = $("#regpass").val();
 	ref.createUser({
 		email    : regemail,
 		password : regpass
 	}, function(error, userData) {
 		if (error) {
-			$("#org #regtitle").fadeIn();
-			$("#org #register").removeClass('disabled');
-			$("#org #register").html("Register");
+			$("#regtitle").fadeIn();
+			$("#register").removeClass('disabled');
+			$("#register").html("Register");
 		} else {
 			ref.authWithPassword({
 				email    : regemail,
 				password : regpass
 			}, function(error, authData) {
-			    ref.child("users").child(authData.uid).set({
-			      type: "organization",
-			    }, function(){
-			    	location.reload();
-			    });
-			});
-		}
-	});
-});
-$("#vol #register").click(function(){
-	$(this).addClass('disabled');
-	$(this).html('<i class="material-icons">query_builder</i>');
-	var regemail = $("#vol #regemail").val();
-	var regpass = $("#vol #regpass").val();
-	ref.createUser({
-		email    : regemail,
-		password : regpass
-	}, function(error, userData) {
-		if (error) {
-			$("#vol #regtitle").fadeIn();
-			$("#vol #register").removeClass('disabled');
-			$("#vol #register").html("Register");
-		} else {
-			ref.authWithPassword({
-				email    : regemail,
-				password : regpass
-			}, function(error, authData) {
-			    ref.child("users").child(authData.uid).set({
-			      type: "volunteer",
-			    }, function(){
-			    	location.reload();
-			    });
+				location.reload();
 			});
 		}
 	});
@@ -122,43 +91,7 @@ $("#login").click(function(){
 		}
 	});
 });
-$("#vol_modal .fb").click(function(){
-	$(this).addClass('disabled');
-	$(this).html('<i class="material-icons">query_builder</i>');
-	ref.authWithOAuthPopup("facebook", function(error, authData) {
-		if (error) {
-			$(".fb_title").fadeIn();
-			$(".fb").removeClass('disabled');
-			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
-		} else {
-			ref.child("users").child(authData.uid).set({
-				type: "volunteer"
-			});
-		}
-	}, {
-	  remember: "sessionOnly",
-	  scope: "email"
-	});
-});
-$("#org_modal .fb").click(function(){
-	$(this).addClass('disabled');
-	$(this).html('<i class="material-icons">query_builder</i>');
-	ref.authWithOAuthPopup("facebook", function(error, authData) {
-		if (error) {
-			$(".fb_title").fadeIn();
-			$(".fb").removeClass('disabled');
-			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
-		} else {
-			ref.child("users").child(authData.uid).set({
-				type: "organization"
-			});
-		}
-	}, {
-	  remember: "sessionOnly",
-	  scope: "email"
-	});
-});
-$("#login_modal .fb").click(function(){
+$(".fb").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
 
@@ -175,6 +108,7 @@ $("#login_modal .fb").click(function(){
 	  scope: "email"
 	});
 });
+
 $(".logout").click(function(){
 	ref.unauth(function(){
 		location.reload();
@@ -184,5 +118,5 @@ $(".logout").click(function(){
 $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
-	$('ul.tabs').tabs();
+
 });

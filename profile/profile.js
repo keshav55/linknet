@@ -65,7 +65,7 @@ $(".logout").click(function(){
 	});
 });
 $("#save").click(function(){
-		    ref.child("users").child(refgetAuth().uid).update({
+		    ref.child("users").child(ref.getAuth().uid).update({
 		      name: $("#name").val(), 
 		      email: $("#email").val(),
 		    });

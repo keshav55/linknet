@@ -11,6 +11,7 @@ function authDataCallback(authData) {
 	    ref.child("users").child(authData.uid).set({
 	      provider: authData.provider,
 	      name: getName(authData), 
+	      email: authData.facebook.email,
 	      image: getImage(authData)
 	    });
 		$(".l_o").remove();

@@ -6,22 +6,24 @@ function authDataCallback(authData) {
 		location.reload();
 	}
 	if (authData) {
-	    // save the user's profile into the database so we can list users,
-	    // use them in Security and Firebase Rules, and show profiles
-		ref.child(authData.id).once('value', function(snapshot) {
-		  if (snapshot.hasChild("type")) {
+		ref.once('value', function(snapshot) {
+		  if (snapshot.hasChild(authData.uid)) {
+			  if (snapshot.child(authData.uid).hasChild("type")) {
+			    jQuery.noop();
+			  } else {
+			  	window.location.replace("http://keshav55.github.io/linknet/verify");
+			  }		
+		  } else {
 		    ref.child("users").child(authData.uid).set({
 		      provider: authData.provider,
 		      name: getName(authData), 
-		      type: snapshot.child("type").val(),
 		      email: getEmail(authData),
 		      image: getImage(authData)
+		    },function(){
+		    	window.location.replace("http://keshav55.github.io/linknet/verify");
 		    });
-		  } else {
-		  	window.location.replace("http://keshav55.github.io/linknet/verify");
 		  }		  
 		});
-
 		$(".l_o").remove();
 		$(".l_i").fadeIn();
 	} else {

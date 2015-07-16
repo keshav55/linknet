@@ -5,16 +5,13 @@ function authDataCallback(authData) {
 	if($(".l_o").length == 0 || $(".l_i").length == 0) {
 		location.reload();
 	}
-	if (authData && isNewUser) {
+	if (authData) {
 	    // save the user's profile into the database so we can list users,
 	    // use them in Security and Firebase Rules, and show profiles
 	    ref.child("users").child(authData.uid).set({
 	      provider: authData.provider,
 	      name: getName(authData)
 	    });
-		$(".l_o").remove();
-		$(".l_i").fadeIn();
-	} else if (authData) {
 		$(".l_o").remove();
 		$(".l_i").fadeIn();
 	} else {

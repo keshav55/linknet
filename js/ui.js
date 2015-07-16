@@ -49,20 +49,42 @@ function getImage(authData) {
   }
 }
 ref.onAuth(authDataCallback);
-
-$("#register").click(function(){
+$("#org #register").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
-	var regemail = $("#regemail").val();
-	var regpass = $("#regpass").val();
+	var regemail = $("#org #regemail").val();
+	var regpass = $("#org #regpass").val();
 	ref.createUser({
 		email    : regemail,
 		password : regpass
 	}, function(error, userData) {
 		if (error) {
-			$("#regtitle").fadeIn();
-			$("#register").removeClass('disabled');
-			$("#register").html("Register");
+			$("#org #regtitle").fadeIn();
+			$("#org #register").removeClass('disabled');
+			$("#org #register").html("Register");
+		} else {
+			ref.authWithPassword({
+				email    : regemail,
+				password : regpass
+			}, function(error, authData) {
+				location.reload();
+			});
+		}
+	});
+});
+$("#vol #register").click(function(){
+	$(this).addClass('disabled');
+	$(this).html('<i class="material-icons">query_builder</i>');
+	var regemail = $("#vol #regemail").val();
+	var regpass = $("#vol #regpass").val();
+	ref.createUser({
+		email    : regemail,
+		password : regpass
+	}, function(error, userData) {
+		if (error) {
+			$("#vol #regtitle").fadeIn();
+			$("#vol #register").removeClass('disabled');
+			$("#vol #register").html("Register");
 		} else {
 			ref.authWithPassword({
 				email    : regemail,
@@ -91,7 +113,26 @@ $("#login").click(function(){
 		}
 	});
 });
-$(".fb").click(function(){
+$("#register_modal .fb").click(function(){
+	$(this).addClass('disabled');
+	$(this).html('<i class="material-icons">query_builder</i>');
+	var user = $(this).parent().id();
+	ref.authWithOAuthPopup("facebook", function(error, authData) {
+		if (error) {
+			$(".fb_title").fadeIn();
+			$(".fb").removeClass('disabled');
+			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
+		} else {
+			ref.child("users").child(authData.uid).set({
+				type: user
+			});
+		}
+	}, {
+	  remember: "sessionOnly",
+	  scope: "email"
+	});
+});
+$("#login_modal .fb").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
 
@@ -108,7 +149,6 @@ $(".fb").click(function(){
 	  scope: "email"
 	});
 });
-
 $(".logout").click(function(){
 	ref.unauth(function(){
 		location.reload();

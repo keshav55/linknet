@@ -12,7 +12,6 @@ nav {
 	letter-spacing: 2px;
 }
 .brand-logo::first-letter { 
-    font-size: 110%;
     color: #40d47e;
 }
 nav .button-collapse {

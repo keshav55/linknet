@@ -2,13 +2,11 @@ var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
 	if (authData) {
-	  $("#reg").remove();
-	  $(".log").remove();
-	  $(".logout").fadeIn();
+	  $(".l_o").remove();
+	  $(".l_i").fadeIn();
 	} else {
-	  $(".logout").remove();
-	  $(".log").fadeIn();
-	  $("#reg").slideDown();
+	  $(".l_o").fadIn();
+	  $(".l_i").remove();
 	}
 }
 ref.onAuth(authDataCallback);

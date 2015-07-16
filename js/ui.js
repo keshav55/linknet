@@ -1,17 +1,35 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
+
 	if($(".l_o").length == 0 || $(".l_i").length == 0) {
-		alert("TE");
 		location.reload();
 	}
-	if (authData) {
+	if (authData && isNewUser) {
+	    // save the user's profile into the database so we can list users,
+	    // use them in Security and Firebase Rules, and show profiles
+	    ref.child("users").child(authData.uid).set({
+	      provider: authData.provider,
+	      name: getName(authData)
+	    });
+		$(".l_o").remove();
+		$(".l_i").fadeIn();
+	} else if (authData) {
 		$(".l_o").remove();
 		$(".l_i").fadeIn();
 	} else {
 		$(".l_o").fadeIn();
 		$(".l_i").remove();
 	}
+}
+function getName(authData) {
+  switch(authData.provider) {
+     case 'password':
+       return authData.password.email.replace(/@.*/, '');
+
+     case 'facebook':
+       return authData.facebook.displayName;
+  }
 }
 ref.onAuth(authDataCallback);
 

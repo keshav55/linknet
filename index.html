@@ -14,13 +14,18 @@
 <body>
 
   <div class="navbar-fixed">
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a class="modal-trigger" href="#org_modal">Volunteer</a></li>
+      <li><a class="modal-trigger" href="#vol_modal">Organization</a></li>
+s
+    </ul>
     <nav>
       <div class="nav-wrapper">
 
         <a href="#" class="brand-logo center">bridge</a>
         <ul class="right hide-on-med-and-down">
           <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
+          <li class="l_o"><a class="dropdown-button" href="#!" data-activates="dropdown1">Register<i class="material-icons right">arrow_drop_down</i></a></li>
           <li class="l_i"><a class="modal-trigger" href="/profile">Profile</a></li>
           <li class="l_i logout"><a class="modal-trigger" href="#">Log Out</a></li>
         </ul>
@@ -30,7 +35,7 @@
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
+          <li class="l_o"><a class="dropdown-button" href="#!" data-activates="dropdown1">Register<i class="material-icons right">arrow_drop_down</i></a></li>
           <li class="l_i"><a class="modal-trigger" href="/profile">Profile</a></li>
           <li class="l_i logout"><a class="modal-trigger" href="#">Log Out</a></li>
           <li class="divider"></li>
@@ -41,19 +46,12 @@
       </div>
     </nav>
   </div>
-  <div id="register_modal" class="modal">
+  <div id="vol_modal" class="modal">
     <div class="modal-content">
       <h4 >Register</h4>
       <div class="divider"></div>
       <p></p>
-      <div class="row">
-        <div class="col s12">
-          <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#vol">Volunteer</a></li>
-            <li class="tab col s3"><a href="#org">Organization</a></li>
-          </ul>
-        </div>
-        <div id="vol" class="col s12">
+
           <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
           <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
           <p></p>
@@ -76,41 +74,50 @@
               </div>
             </div>
           </form> 
-          <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
-
-        </div>
-        <div id="org" class="col s12">
-          <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
-          <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
-          <p></p>
-          <div class="divider"></div>
-          <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
-          
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">email</i>
-                <input id="regemail" type="email" class="validate">
-                <label for="regemail" data-error="Invalid">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">vpn_key</i>
-                <input id="regpass" type="password" class="validate">
-                <label for="regpass">Password</label>
-              </div>
-            </div>
-          </form> 
-          <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
-
-        </div>
 
       </div>
 
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" id="vol">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
+    </div>
+  </div>
+  <div id="org_modal" class="modal">
+    <div class="modal-content">
+      <h4 >Register</h4>
+      <div class="divider"></div>
+      <p></p>
+
+          <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
+          <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
+          <p></p>
+          <div class="divider"></div>
+          <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
+          
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input id="regemail" type="email" class="validate">
+                <label for="regemail" data-error="Invalid">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="regpass" type="password" class="validate">
+                <label for="regpass">Password</label>
+              </div>
+            </div>
+          </form> 
+
+      </div>
+
+    </div>
+    <div class="modal-footer" id="org">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
     </div>
   </div>
   <div id="login_modal" class="modal">

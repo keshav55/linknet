@@ -68,7 +68,11 @@ $("#org #register").click(function(){
 				email    : regemail,
 				password : regpass
 			}, function(error, authData) {
-				location.reload();
+			    ref.child("users").child(authData.uid).set({
+			      type: "organization",
+			    }, function(){
+			    	location.reload();
+			    });
 			});
 		}
 	});
@@ -87,11 +91,12 @@ $("#vol #register").click(function(){
 			$("#vol #register").removeClass('disabled');
 			$("#vol #register").html("Register");
 		} else {
-			ref.authWithPassword({
-				email    : regemail,
-				password : regpass
 			}, function(error, authData) {
-				location.reload();
+			    ref.child("users").child(authData.uid).set({
+			      type: "volunteer",
+			    }, function(){
+			    	location.reload();
+			    });
 			});
 		}
 	});
@@ -114,7 +119,7 @@ $("#login").click(function(){
 		}
 	});
 });
-$("#register_modal .fb").click(function(){
+$("#vol_modal .fb").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
 	var user = $(this).parent().id();
@@ -125,7 +130,26 @@ $("#register_modal .fb").click(function(){
 			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
 		} else {
 			ref.child("users").child(authData.uid).set({
-				type: user
+				type: "volunteer"
+			});
+		}
+	}, {
+	  remember: "sessionOnly",
+	  scope: "email"
+	});
+});
+$("#org_modal .fb").click(function(){
+	$(this).addClass('disabled');
+	$(this).html('<i class="material-icons">query_builder</i>');
+	var user = $(this).parent().id();
+	ref.authWithOAuthPopup("facebook", function(error, authData) {
+		if (error) {
+			$(".fb_title").fadeIn();
+			$(".fb").removeClass('disabled');
+			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
+		} else {
+			ref.child("users").child(authData.uid).set({
+				type: "organization"
 			});
 		}
 	}, {

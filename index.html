@@ -46,8 +46,16 @@
       <h4 >Register</h4>
       <div class="divider"></div>
       <p></p>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#vol">Volunteer</a></li>
+        <li class="tab col s3"><a href="#org">Organization</a></li>
+      </ul>
+    </div>
+    <div id="vol" class="col s12">
       <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
-      <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
+      <a class="fb_vol waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
       <p></p>
       <div class="divider"></div>
       <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
@@ -67,11 +75,42 @@
             <label for="regpass">Password</label>
           </div>
         </div>
-      </form>
+      </form>  
+      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
+    
+    </div>
+    <div id="org" class="col s12">
+      <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
+      <a class="fb_org waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
+      <p></p>
+      <div class="divider"></div>
+      <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
+      
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="regemail" type="email" class="validate">
+            <label for="regemail" data-error="Invalid">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="regpass" type="password" class="validate">
+            <label for="regpass">Password</label>
+          </div>
+        </div>
+        <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
+
+      </form>      
+    </div>
+  </div>
+        
+
     </div>
     <div class="modal-footer">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
     </div>
   </div>
   <div id="login_modal" class="modal">

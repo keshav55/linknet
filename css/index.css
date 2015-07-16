@@ -32,11 +32,11 @@ nav .button-collapse {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   /* image replacement properties */
   overflow: hidden;
-  text-indent: 100%;
   white-space: nowrap;
-  background: rgba(232, 98, 86, 0.8);
+  background: #333;
   visibility: hidden;
   opacity: 0;
+  border-radius: 10px;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
   -moz-transition: opacity .3s 0s, visibility 0s .3s;
   transition: opacity .3s 0s, visibility 0s .3s;
@@ -56,7 +56,6 @@ nav .button-collapse {
   opacity: .5;
 }
 .no-touch .cd-top:hover {
-  background-color: #e86256;
   opacity: 1;
 }
 @media only screen and (min-width: 768px) {
@@ -70,6 +69,6 @@ nav .button-collapse {
     height: 60px;
     width: 60px;
     right: 30px;
-    bottom: 30px;
+    bottom: 5px;
   }
 }

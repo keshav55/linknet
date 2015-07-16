@@ -20,6 +20,7 @@ function authDataCallback(authData) {
 		    });
 		  }		  
 			$(".l_i").fadeIn();
+			$("#image").attr("src", snapshot.child("users").child(authData.uid).child("image").val());
 			$("#type").text(snapshot.child("users").child(authData.uid).child("type").val());
 			$("#name").text(snapshot.child("users").child(authData.uid).child("name").val());
 			$("#email").text(snapshot.child("users").child(authData.uid).child("email").val());

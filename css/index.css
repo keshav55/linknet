@@ -7,6 +7,5 @@ nav {
 
 }
 .brand-logo::first-letter { 
-    font-size: 200%;
     color: #40d47e;
 }

@@ -18,6 +18,6 @@ nav {
 nav .button-collapse {
     padding-left: 10px;
 }
-#reg, .log, .logout, #regtitle, #logtitle {
+#reg, .log, .logout, #regtitle, #logtitle, .fb_title {
 	display: none;
 }

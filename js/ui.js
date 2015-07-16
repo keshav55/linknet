@@ -15,7 +15,7 @@ function authDataCallback(authData) {
 	      image: getImage(authData)
 	    });
 	    ref.child("users").child(authData.uid).child("type").once("value", function(data) {
-		  alert(data);
+		  console.log(data);
 		  if(data){
 		  	jQuery.noop();
 		  } else {

@@ -20,3 +20,11 @@ nav .button-collapse {
 #reg, .log, .logout, #regtitle, #logtitle, .fb_title {
 	display: none;
 }
+.small_nav {
+	margin: 0.5rem 0 1rem 0;
+
+}
+.small_nav_wrapper {
+    margin-top: 1rem;
+
+}

@@ -52,6 +52,21 @@ $("#login").click(function(){
 	  }
 	});
 });
+$(".fb").click(function(){
+	$(this).addClass('disabled');
+	$(this).html('<i class="material-icons">query_builder</i>');
+
+	ref.authWithOAuthPopup("facebook", function(error, authData) {
+		  if (error) {
+		    $(".fb_title").fadeIn();
+		    $(".fb").removeClass('disabled');
+		    $(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
+		  } else {
+		  	location.reload();
+		  }
+	});
+});
+
 $(".logout").click(function(){
 	ref.unauth(function(){
 		location.reload();

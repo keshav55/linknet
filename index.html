@@ -8,6 +8,7 @@
   <link rel="shortcut icon" href="img/logo.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -32,6 +33,7 @@
           <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
           <li class="l_i"><a class="modal-trigger" href="/profile">Profile</a></li>
           <li class="l_i logout"><a class="modal-trigger" href="#">Log Out</a></li>
+          <li class="divider"></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -42,9 +44,12 @@
   <div id="register_modal" class="modal">
     <div class="modal-content">
       <h4 >Register</h4>
+      <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
+      <a class="fb waves-effect waves-light btn-large"><i class="fa fa-facebook"></i>Log in with Facebook</a>
+      <div class="divider"></div>
       <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
+      
       <form class="col s12">
-
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">email</i>
@@ -69,6 +74,9 @@
   <div id="login_modal" class="modal">
     <div class="modal-content">
       <h4>Log In</h4>
+      <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
+      <a class="fb waves-effect waves-light btn-large"><i class="fa fa-facebook"></i>Log in with Facebook</a>
+      <div class="divider"></div>
       <p id="logtitle" class="red-text">There was an error. Consider revising and try again.</p>
       <form class="col s12">
 

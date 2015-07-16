@@ -11,7 +11,6 @@ function authDataCallback(authData) {
 	    ref.child("users").child(authData.uid).set({
 	      provider: authData.provider,
 	      name: getName(authData), 
-	      email: getEmail(authData),
 	      image: getImage(authData)
 	    });
 		$(".l_o").remove();
@@ -30,15 +29,7 @@ function getName(authData) {
        return authData.facebook.displayName;
   }
 }
-function getEmail(authData) {
-  switch(authData.provider) {
-     case 'password':
-       return authData.password.email;
 
-     case 'facebook':
-       return authData.facebook.email;
-  }
-}
 function getImage(authData) {
   switch(authData.provider) {
      case 'password':

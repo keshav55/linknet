@@ -125,7 +125,6 @@ $("#login").click(function(){
 $("#vol_modal .fb").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
-	var user = $(this).parent().id();
 	ref.authWithOAuthPopup("facebook", function(error, authData) {
 		if (error) {
 			$(".fb_title").fadeIn();
@@ -144,7 +143,6 @@ $("#vol_modal .fb").click(function(){
 $("#org_modal .fb").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
-	var user = $(this).parent().id();
 	ref.authWithOAuthPopup("facebook", function(error, authData) {
 		if (error) {
 			$(".fb_title").fadeIn();

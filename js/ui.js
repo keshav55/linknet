@@ -10,7 +10,9 @@ function authDataCallback(authData) {
 	    // use them in Security and Firebase Rules, and show profiles
 	    ref.child("users").child(authData.uid).set({
 	      provider: authData.provider,
-	      name: getName(authData)
+	      name: getName(authData), 
+	      email: getEmail(authData),
+	      image: getImage(authData)
 	    });
 		$(".l_o").remove();
 		$(".l_i").fadeIn();
@@ -26,6 +28,24 @@ function getName(authData) {
 
      case 'facebook':
        return authData.facebook.displayName;
+  }
+}
+function getEmail(authData) {
+  switch(authData.provider) {
+     case 'password':
+       return authData.password.email;
+
+     case 'facebook':
+       return authData.facebook.email;
+  }
+}
+function getImage(authData) {
+  switch(authData.provider) {
+     case 'password':
+       return "http://keshav55.github.io/linknet/img/user.png";
+
+     case 'facebook':
+       return authData.facebook.profileImageURL;
   }
 }
 ref.onAuth(authDataCallback);

@@ -24,6 +24,9 @@ function authDataCallback(authData) {
 			$("#type").text(snapshot.child("users").child(authData.uid).child("type").val());
 			$("#name").val(snapshot.child("users").child(authData.uid).child("name").val());
 			$("#email").val(snapshot.child("users").child(authData.uid).child("email").val());
+			$("#email").next().addClass("active");
+			$("#name").next().addClass("active");
+
 		});
 
 	} else {

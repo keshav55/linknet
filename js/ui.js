@@ -14,7 +14,7 @@ function authDataCallback(authData) {
 	}
 }
 ref.onAuth(authDataCallback);
-
+$(document).on('cookieUpdate', authDataCallback);
 $("#register").click(function(){
 	$(this).addClass('disabled');
 	$(this).html('<i class="material-icons">query_builder</i>');
@@ -33,6 +33,7 @@ $("#register").click(function(){
 				email    : regemail,
 				password : regpass
 			}, function(error, authData) {
+				$(document).trigger('cookieUpdate');				
 				location.reload();
 			});
 		}
@@ -52,6 +53,7 @@ $("#login").click(function(){
 			$("#login").removeClass('disabled');
 			$("#login").html("Log In");	    
 		} else {
+			$(document).trigger('cookieUpdate');
 			location.reload();
 		}
 	});
@@ -66,6 +68,7 @@ $(".fb").click(function(){
 			$(".fb").removeClass('disabled');
 			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
 		} else {
+			$(document).trigger('cookieUpdate');
 			location.reload();
 		}
 	});
@@ -73,6 +76,7 @@ $(".fb").click(function(){
 
 $(".logout").click(function(){
 	ref.unauth(function(){
+		$(document).trigger('cookieUpdate');
 		location.reload();
 	});
 });

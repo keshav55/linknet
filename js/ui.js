@@ -1,20 +1,11 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
-function authDataCallback(authData) {
-	var authData = ref.getAuth();
-	console.log("authData");
-	if($(".l_o").length == 0 || $(".l_i").length == 0) {
-		alert("TE");
-		location.reload();
-	}
-	if (authData) {
-		$(".l_o").remove();
-		$(".l_i").fadeIn();
-	} else {
-		$(".l_o").fadeIn();
-		$(".l_i").remove();
-	}
-}
-ref.onAuth(authDataCallback);
+ref.onAuth(function(authData) {
+  if (authData) {
+    console.log("Authenticated with uid:", authData.uid);
+  } else {
+    console.log("Client unauthenticated.")
+  }
+});
 
 $("#register").click(function(){
 	$(this).addClass('disabled');

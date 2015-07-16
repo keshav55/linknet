@@ -1,7 +1,6 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
-	console.log("authData");
 	if($(".l_o").length == 0 || $(".l_i").length == 0) {
 		location.reload();
 	}
@@ -33,8 +32,10 @@ $("#register").click(function(){
 				email    : regemail,
 				password : regpass
 			}, function(error, authData) {
-				$(document).trigger('cookieUpdate');				
-				location.reload();
+				$(document).trigger('cookieUpdate', function(){
+					location.reload();
+				});				
+				
 			});
 		}
 	});
@@ -53,8 +54,9 @@ $("#login").click(function(){
 			$("#login").removeClass('disabled');
 			$("#login").html("Log In");	    
 		} else {
-			$(document).trigger('cookieUpdate');
-			location.reload();
+				$(document).trigger('cookieUpdate', function(){
+					location.reload();
+				});	
 		}
 	});
 });
@@ -68,16 +70,18 @@ $(".fb").click(function(){
 			$(".fb").removeClass('disabled');
 			$(".fb").html('<i class="fa fa-facebook"></i>Log in with Facebook');	    
 		} else {
-			$(document).trigger('cookieUpdate');
-			location.reload();
+				$(document).trigger('cookieUpdate', function(){
+					location.reload();
+				});	
 		}
 	});
 });
 
 $(".logout").click(function(){
 	ref.unauth(function(){
-		$(document).trigger('cookieUpdate');
-		location.reload();
+				$(document).trigger('cookieUpdate', function(){
+					location.reload();
+				});	
 	});
 });
 

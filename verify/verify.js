@@ -5,16 +5,19 @@ function authDataCallback(authData) {
 		ref.once('value', function(snapshot) {
 		  if (snapshot.hasChild(authData.uid)) {
 			  if (snapshot.child(authData.uid).hasChild("type")) {
+			  	alert("1");
 			    window.location.replace("http://keshav55.github.io/linknet");
 			  } else {
 			  	jQuery.noop();
 			  }		
 		  } else {
+		  	alert("2");
 		    window.location.replace("http://keshav55.github.io/linknet");
 		  }		  
 		});
 
 	} else {
+		alert("3");
 		window.location.replace("http://keshav55.github.io/linknet");
 	}
 }

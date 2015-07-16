@@ -5,6 +5,7 @@ function authDataCallback(authData) {
 	if($(".l_o").length == 0 || $(".l_i").length == 0) {
 		location.reload();
 	}
+	console.log(authData.facebook);
 	if (authData) {
 	    // save the user's profile into the database so we can list users,
 	    // use them in Security and Firebase Rules, and show profiles

@@ -14,6 +14,13 @@ function authDataCallback(authData) {
 	      email: getEmail(authData),
 	      image: getImage(authData)
 	    });
+	    ref.child("users").child(authData.uid).child("type").once("value", function(data) {
+		  if(data){
+		  	jQuery.noop();
+		  } else {
+		  	window.location.replace("http://keshav55.github.io/linknet/verify");
+		  }
+		});
 		$(".l_o").remove();
 		$(".l_i").fadeIn();
 	} else {

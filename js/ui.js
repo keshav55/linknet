@@ -1,7 +1,7 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
-	
+	console.log("authData");
 	if($(".l_o").length == 0 || $(".l_i").length == 0) {
 		alert("TE");
 		location.reload();

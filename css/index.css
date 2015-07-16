@@ -6,6 +6,10 @@ nav {
     background-color: #333 !important;
 
 }
+@font-face {font-family:"Harabara";src:url("fonts/Harabara.eot?") format("eot"),url("fonts/Harabara.woff") format("woff"),url("fonts/Harabara.ttf") format("truetype"),url("fonts/Harabara.svg#Harabara") format("svg");font-weight:normal;font-style:normal;}
+.brand-logo {
+	font-family: "Harabara";
+}
 .brand-logo::first-letter { 
     font-size: 110%;
     color: #40d47e;

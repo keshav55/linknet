@@ -31,7 +31,15 @@ function getName(authData) {
        return authData.facebook.displayName;
   }
 }
+function getEmail(authData) {
+  switch(authData.provider) {
+     case 'password':
+       return authData.password.email;
 
+     case 'facebook':
+       return authData.facebook.email;
+  }
+}
 function getImage(authData) {
   switch(authData.provider) {
      case 'password':
@@ -96,6 +104,9 @@ $(".fb").click(function(){
 		} else {
 			location.reload();
 		}
+	}, {
+	  remember: "sessionOnly",
+	  scope: "email"
 	});
 });
 

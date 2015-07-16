@@ -2,7 +2,7 @@ var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
 	if (authData) {
-		ref.once('value', function(snapshot) {
+		ref.on('value', function(snapshot) {
 		  if (snapshot.child("users").hasChild(authData.uid)) {
 			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
 			    jQuery.noop();
@@ -22,8 +22,8 @@ function authDataCallback(authData) {
 			$(".l_i").fadeIn();
 			$("#image").attr("src", snapshot.child("users").child(authData.uid).child("image").val());
 			$("#type").text(snapshot.child("users").child(authData.uid).child("type").val());
-			$("#name").text(snapshot.child("users").child(authData.uid).child("name").val());
-			$("#email").text(snapshot.child("users").child(authData.uid).child("email").val());
+			$("#name").val(snapshot.child("users").child(authData.uid).child("name").val());
+			$("#email").val(snapshot.child("users").child(authData.uid).child("email").val());
 		});
 
 	} else {
@@ -63,4 +63,10 @@ $(".logout").click(function(){
 	ref.unauth(function(){
 		location.reload();
 	});
+});
+$("#save").click(function(){
+		    ref.child("users").child(authData.uid).update({
+		      name: $("#name").val(), 
+		      email: $("#email").val(),
+		    });
 });

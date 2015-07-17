@@ -5,21 +5,22 @@ function authDataCallback(authData) {
 	if (authData) {
 		ref.child("users").on('value', function(snapshot) {
 		  if (snapshot.hasChild(authData.uid)) {
-			  if (snapshot.child(authData.uid).child("type").val() == "Volunteer") {
-			    if(snapshot.child(authData.uid).child("type").val()) {
+			  if (snapshot.child(authData.uid).hasChild("type")) {
+			    if(snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    	$("a[href='../post']").remove();
-			    } else {
+			    } else(snapshot.child(authData.uid).child("type").val() == "Organization") {
 			    	$("a[href='../post']").show();
 			    }
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");
 			  }		
 		  } else {
-		    ref.child(authData.uid).set({
-		      provider: authData.provider,
+		    ref.child("users").child(authData.uid).set({
 		      name: getName(authData), 
 		      email: getEmail(authData),
-		      image: getImage(authData)
+		      image: getImage(authData),
+		      phone: "None",
+		  	  description: "None"
 		    },function(){
 		    	window.location.replace("http://keshav55.github.io/linknet/verify");
 		    });
@@ -29,8 +30,12 @@ function authDataCallback(authData) {
 			$("#type").text(snapshot.child(authData.uid).child("type").val());
 			$("#name").val(snapshot.child(authData.uid).child("name").val());
 			$("#email").val(snapshot.child(authData.uid).child("email").val());
+			$("#description").val(snapshot.child(authData.uid).child("description").val());
+			$("#phone").val(snapshot.child(authData.uid).child("phone").val());
 			$("#email").next().addClass("active");
 			$("#name").next().addClass("active");
+			$("#description").next().addClass("active");
+			$("#phone").next().addClass("active");
 
 		});
 
@@ -76,11 +81,10 @@ function readURL(input) {
 
             reader.readAsDataURL(input.files[0]);
         }
-    }
-
-    $("#imgInp").change(function(){
-        readURL(this);
-    });
+}
+$("#imgInp").change(function(){
+    readURL(this);
+});
 $(".logout").click(function(){
 	ref.unauth(function(){
 		location.reload();
@@ -90,6 +94,8 @@ $("#save").click(function(){
 		    ref.child("users").child(ref.getAuth().uid).update({
 		      name: $("#name").val(), 
 		      image: $("#image").attr("src"),
-		      email: $("#email").val()
+		      email: $("#email").val(), 
+		      description: $("#description").val(), 
+		      phone: $("#phone").val()
 		    });
 });

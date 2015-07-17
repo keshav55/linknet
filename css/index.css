@@ -17,7 +17,7 @@ nav {
 nav .button-collapse {
     padding-left: 10px;
 }
-#reg, .log, .logout, #regtitle, #logtitle, .fb_title {
+#reg, .log, .logout, #regtitle, #logtitle, .fb_title, .l_o, .l_i {
 	display: none;
 }
 .small_nav {

@@ -21,10 +21,12 @@ function authDataCallback(authData) {
 			  }		
 		  } else {
 		    ref.child("users").child(authData.uid).set({
-		      provider: authData.provider,
 		      name: getName(authData), 
 		      email: getEmail(authData),
-		      image: getImage(authData)
+		      image: getImage(authData),
+		      phone: "None",
+		  	  description: "None"
+
 		    },function(){
 		    	window.location.replace("http://keshav55.github.io/linknet/verify");
 		    });

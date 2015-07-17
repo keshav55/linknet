@@ -21,9 +21,9 @@ function authDataCallback(authData) {
 
 ref.onAuth(authDataCallback);
 $("#submit").click(function(){
-	ref.child("users").child(ref.getAuth().uid).update({
-	  "type": $("input[name=group1]:checked").val()
-	}, function(){
-		window.location.replace("http://keshav55.github.io/linknet");
-	});
+		ref.child("users").child(ref.getAuth().uid).update({
+		  "type": $("input[name=group1]:checked").val()
+		}, function(){
+			window.location.replace("http://keshav55.github.io/linknet");
+		});
 });

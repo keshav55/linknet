@@ -8,7 +8,7 @@ function authDataCallback(authData) {
 			  if (snapshot.child(authData.uid).hasChild("type")) {
 			    if(snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    	$("a[href='../post']").remove();
-			    } else(snapshot.child(authData.uid).child("type").val() == "Organization") {
+			    } else if (snapshot.child(authData.uid).child("type").val() == "Organization") {
 			    	$("a[href='../post']").show();
 			    }
 			  } else {

@@ -10,6 +10,7 @@ function authDataCallback(authData) {
 		  if (snapshot.child("users").hasChild(authData.uid)) {
 			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
 			    if(snapshot.child(authData.uid).child("type").val()=="Volunteer") {
+			    	alert("S");
 			    	$('a[href$="post"]').remove();
 			    }
 			  } else {

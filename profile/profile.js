@@ -1,4 +1,5 @@
 var ref = new Firebase("https://bridgecom.firebaseio.com");
+$("a[href='../post']").hide();
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
 	if (authData) {
@@ -7,6 +8,8 @@ function authDataCallback(authData) {
 			  if (snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    if(snapshot.child(authData.uid).child("type").val()) {
 			    	$("a[href='../post']").remove();
+			    } else {
+			    	$("a[href='../post']").show();
 			    }
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");

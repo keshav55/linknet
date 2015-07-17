@@ -12,6 +12,9 @@ function authDataCallback(authData) {
 			    if(snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    	$("a[href='../post']").remove();
 			    	$("a[href='post']").remove();
+			    } else {
+			    	$("a[href='../post']").show();
+			    	$("a[href='post']").show();			    	
 			    }
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");
@@ -131,5 +134,5 @@ $(".logout").click(function(){
 $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
-
+    $("a[href='post']").hide();
 });

@@ -2,15 +2,15 @@ var ref = new Firebase("https://bridgecom.firebaseio.com");
 function authDataCallback(authData) {
 	var authData = ref.getAuth();
 	if (authData) {
-		ref.on('value', function(snapshot) {
-		  if (snapshot.child("users").hasChild(authData.uid)) {
-			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
+		ref.child("users").on('value', function(snapshot) {
+		  if (snapshot.hasChild(authData.uid)) {
+			  if (snapshot.child(authData.uid).hasChild("type")) {
 			    jQuery.noop();
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");
 			  }		
 		  } else {
-		    ref.child("users").child(authData.uid).set({
+		    ref.child(authData.uid).set({
 		      provider: authData.provider,
 		      name: getName(authData), 
 		      email: getEmail(authData),
@@ -20,10 +20,10 @@ function authDataCallback(authData) {
 		    });
 		  }		  
 			$(".l_i").fadeIn();
-			$("#image").attr("src", snapshot.child("users").child(authData.uid).child("image").val());
-			$("#type").text(snapshot.child("users").child(authData.uid).child("type").val());
-			$("#name").val(snapshot.child("users").child(authData.uid).child("name").val());
-			$("#email").val(snapshot.child("users").child(authData.uid).child("email").val());
+			$("#image").attr("src", snapshot.child(authData.uid).child("image").val());
+			$("#type").text(snapshot.child(authData.uid).child("type").val());
+			$("#name").val(snapshot.child(authData.uid).child("name").val());
+			$("#email").val(snapshot.child(authData.uid).child("email").val());
 			$("#email").next().addClass("active");
 			$("#name").next().addClass("active");
 

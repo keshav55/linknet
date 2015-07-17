@@ -6,11 +6,10 @@ function authDataCallback(authData) {
 		location.reload();
 	}
 	if (authData) {
-		ref.once('value', function(snapshot) {
-		  if (snapshot.child("users").hasChild(authData.uid)) {
-			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
-			  	console.log(snapshot.child(authData.uid).child("type"));
-			    if(snapshot.child(authData.uid).child("type") == "Volunteer") {
+		ref.child("users").once('value', function(snapshot) {
+		  if (snapshot.hasChild(authData.uid)) {
+			  if (snapshot.child(authData.uid).hasChild("type")) {
+			    if(snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    	$("a[href='../post']").remove();
 			    	$("a[href='post']").remove();
 			    }

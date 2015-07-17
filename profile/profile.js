@@ -4,7 +4,7 @@ function authDataCallback(authData) {
 	if (authData) {
 		ref.child("users").on('value', function(snapshot) {
 		  if (snapshot.hasChild(authData.uid)) {
-			  if (snapshot.child(authData.uid).hasChild("type")) {
+			  if (snapshot.child(authData.uid).child("type").val() == "Volunteer") {
 			    if(snapshot.child(authData.uid).child("type").val()) {
 			    	$("a[href='../post']").remove();
 			    }

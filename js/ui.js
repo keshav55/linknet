@@ -9,7 +9,9 @@ function authDataCallback(authData) {
 		ref.once('value', function(snapshot) {
 		  if (snapshot.child("users").hasChild(authData.uid)) {
 			  if (snapshot.child("users").child(authData.uid).hasChild("type")) {
-			    jQuery.noop();
+			    if(snapshot.child(authData.uid).child("type").val()) {
+			    	$("a[href='../post']").remove();
+			    }
 			  } else {
 			  	window.location.replace("http://keshav55.github.io/linknet/verify");
 			  }		

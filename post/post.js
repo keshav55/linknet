@@ -77,7 +77,7 @@ $('#us').locationpicker({
 });
 $("#post").click(function(){
 	ref.child('users').child(ref.getAuth().uid).once('value', function(snapshot){
-		var name = snapshot.name.val();
+		var name = snapshot.val().name;
 		ref.child("posts").push({
 		  title: $("#title").val(),
 		  author: name,

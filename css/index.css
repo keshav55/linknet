@@ -40,5 +40,5 @@ nav .button-collapse {
 input[type=range] {
     margin: 0px !important;
     margin-top: 26px !important;
-
+    border: none !important
 }

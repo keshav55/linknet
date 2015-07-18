@@ -66,19 +66,28 @@
                 </li>
               </ul>
             </div>    
+
+            <div class="input-field col s6 m3">
+              <i class="material-icons prefix">today</i>
+              <input type="text" class="date start" id="startDate" name="startDate" value="" /> 
+              <label class="active" for="email">Start</label>
+            </div>
+            <div class="input-field col s6 m3">
+              <input type="text"  class="time start" id="startTime" name="startTime" value="" />
+              <label class="active" for="startTime">Time</label>
+            </div>
+            <div class="input-field col s6 m3">
+              <input type="text" class="date end" id="endDate" name="endDate" value="" /> 
+              <label class="active" for="endDate">End</label>
+            </div>
+            <div class="input-field col s6 m3">
+              <input type="text" class="time end" id="endTime" name="endTime" value="" /> 
+              <label class="active" for="endTime">Time</label>
+            </div>            
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">location_on</i>
               <input id="location" type="text" class="validate">
               <label class="active" for="name">Location</label>
-            </div>
-            <div class="input-field col s6 m3">
-              <i class="material-icons prefix">today</i>
-              <input type="text" id="startDate" name="startDate" value="" /> 
-              <label class="active" for="email">Start</label>
-            </div>
-            <div class="input-field col s6 m3">
-              <input type="text" id="endDate" name="endDate" value="" /> 
-              <label class="active" for="endDate">End</label>
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">subject</i>
@@ -91,15 +100,12 @@
      </div>
   </div>
   <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/i18n/jquery-ui-timepicker-addon-i18n.js"></script>
-      <script src="//cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-sliderAccess.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://materializecss.com/bin/materialize.js"></script>
   <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-
+  <script type="text/javascript" src="Datepair.js"></script>
+  <script type="text/javascript" src="jquery.datepair.js"></script>
   <script src="post.js"></script>
 
 </body>

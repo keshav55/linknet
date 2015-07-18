@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href="../css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <noscript>
@@ -69,15 +70,14 @@
               <input id="location" type="text" class="validate">
               <label class="active" for="name">Location</label>
             </div>
-            <div class="input-field col s12 m6">
+            <div class="input-field col s6 m3">
               <i class="material-icons prefix">today</i>
-              <input id="email" type="date" class="datepicker">
-              <label class="active" for="email">Date</label>
+              <input type="text" id="startDate" name="startDate" value="" /> 
+              <label class="active" for="email">Start</label>
             </div>
-            <div class="input-field col s12 m6">
-              <i class="material-icons prefix">schedule</i>
-              <input id="phone" type="tel" class="validate">
-              <label class="active" for="phone">Time</label>
+            <div class="input-field col s6 m3">
+              <input type="text" id="endDate" name="endDate" value="" /> 
+              <label class="active" for="endDate">End</label>
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">subject</i>
@@ -94,6 +94,7 @@
   <script src="http://materializecss.com/bin/materialize.js"></script>
   <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="post.js"></script>
 
 </body>

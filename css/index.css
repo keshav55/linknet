@@ -33,3 +33,7 @@ nav .button-collapse {
     display: none !important; 
   } 
 }
+.label {
+    margin-top: -20px;
+    left: 0rem;
+}

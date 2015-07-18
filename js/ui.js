@@ -147,7 +147,7 @@ ref.child("posts").once("value", function(snapshot) {
     // childData will be the actual contents of the child
     var childData = childSnapshot.val();
     console.log(childData);
-    $("#feed").append('<div class="col s12 m6"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><p>By '+childData.author+'<br>'+childData.date+'<br>'+childData.location+'<br>Volunteers needed: '+childData.needed+'<br>'+childData.description+'</div><div class="card-action"><a href="#">Join</a></div></div></div>');
+    $("#feed").append('<div class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><p>By '+childData.author+'<br>'+childData.date+'<br>'+childData.location+'<br>Volunteers needed: '+childData.needed+'<br>'+childData.description+'</div><div class="card-action"><a href="#">Join</a></div></div></div>');
             
             
   });

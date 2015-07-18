@@ -75,4 +75,17 @@ $('#us').locationpicker({
         locationNameInput: $('#location')
     }
 });
+$("#post").click(function(){
+	ref.child("posts").set({
+	  title: $("#title").val(),
+	  author: ref.getAuth().uid,
+	  picture: $("#image").attr("src"),
+	  location: $("#location").val(),
+	  date: $("#startTime").val()+ " " +$("#startDate").val() + " to " + $("#endTime").val()+ " " +$("#endDate").val(),
+	  needed: $("#number").val(),
+	  volunteers: 'none',
+	  affiliates: $("#affiliates").val(),
+	  description: $("#description").val()
+	});
+});
         

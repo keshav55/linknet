@@ -38,32 +38,7 @@ function authDataCallback(authData) {
 		$(".l_o").fadeIn();
 		$(".l_i").remove();
 	}
-	ref.child("posts").once("value", function(snapshot) {
-	  // The callback function will get called twice, once for "fred" and once for "barney"
-	  snapshot.forEach(function(childSnapshot) {
-	    // key will be "fred" the first time and "barney" the second time
-	    var key = childSnapshot.key();
-	    // childData will be the actual contents of the child
-	    var childData = childSnapshot.val();
-	    console.log(childData);
-	    $("#feed").append('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
-	                        
-	  });
-	});
-	ref.child("posts").on("child_added", function(snapshot, prevChildKey) {
-	  var childData = snapshot.val();
-	  var key = snapshot.key();
-	  $("#feed").prepend('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
 
-	});
-	ref.on("child_changed", function(snapshot) {
-	  var childData = snapshot.val();
-	  var key = snapshot.key();	  
-	  $("#feed #"+ key).replaceWith('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
-	});
-	ref.on("child_removed", function(snapshot) {
-	  $("#feed #" + snapshot.key()).remove();
-	});
 }
 function getName(authData) {
   switch(authData.provider) {
@@ -164,4 +139,30 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
     $("a[href='post']").hide();
     $("a[href='../post']").hide();
+	ref.child("posts").once("value", function(snapshot) {
+	  // The callback function will get called twice, once for "fred" and once for "barney"
+	  snapshot.forEach(function(childSnapshot) {
+	    // key will be "fred" the first time and "barney" the second time
+	    var key = childSnapshot.key();
+	    // childData will be the actual contents of the child
+	    var childData = childSnapshot.val();
+	    console.log(childData);
+	    $("#feed").append('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
+	                        
+	  });
+	});
+	ref.child("posts").on("child_added", function(snapshot, prevChildKey) {
+	  var childData = snapshot.val();
+	  var key = snapshot.key();
+	  $("#feed").prepend('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
+
+	});
+	ref.on("child_changed", function(snapshot) {
+	  var childData = snapshot.val();
+	  var key = snapshot.key();	  
+	  $("#feed #"+ key).replaceWith('<div id="'+key+'" class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By <b>'+childData.author+'</b><span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div><a target="_blank" href="https://www.google.com/maps/place/'+childData.location+'">'+childData.location+'</a><span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
+	});
+	ref.on("child_removed", function(snapshot) {
+	  $("#feed #" + snapshot.key()).remove();
+	});
 });

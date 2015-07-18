@@ -35,5 +35,5 @@ nav .button-collapse {
 }
 .label {
     margin-top: -20px;
-    left: 0rem;
+    left: 0rem !important;
 }

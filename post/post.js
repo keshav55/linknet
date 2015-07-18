@@ -62,16 +62,8 @@ $(".logout").click(function(){
 		location.reload();
 	});
 });
-    $('#timepick .time').timepicker({
-        'showDuration': true,
-        'timeFormat': 'g:ia'
-    });
-
-    $('#timepick .date').datepicker({
-        'format': 'm/d/yyyy',
-        'autoclose': true
-    });
-
-    // initialize datepair
-    var basicExampleEl = document.getElementById('timepick');
-    var datepair = new Datepair(basicExampleEl);
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+        

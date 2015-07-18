@@ -76,16 +76,19 @@ $('#us').locationpicker({
     }
 });
 $("#post").click(function(){
-	ref.child("posts").push({
-	  title: $("#title").val(),
-	  author: ref.getAuth().uid,
-	  picture: $("#image").attr("src"),
-	  location: $("#location").val(),
-	  date: $("#startTime").val()+ " " +$("#startDate").val() + " to " + $("#endTime").val()+ " " +$("#endDate").val(),
-	  needed: $("#number").val(),
-	  volunteers: 'none',
-	  affiliates: $("#affiliates").val(),
-	  description: $("#description").val()
+	ref.child('users').child(ref.getAuth().uid).once('value', function(snapshot){
+		var name = snapshot.name.val();
+		ref.child("posts").push({
+		  title: $("#title").val(),
+		  author: name,
+		  picture: $("#image").attr("src"),
+		  location: $("#location").val(),
+		  date: $("#startTime").val()+ " " +$("#startDate").val() + " to " + $("#endTime").val()+ " " +$("#endDate").val(),
+		  needed: $("#number").val(),
+		  volunteers: 'none',
+		  affiliates: $("#affiliates").val(),
+		  description: $("#description").val()
+		});
 	});
 });
         

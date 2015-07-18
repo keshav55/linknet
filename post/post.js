@@ -69,6 +69,7 @@ $('.datepicker').pickadate({
 $('#us').locationpicker({
 	location: {latitude: 37.5482697, longitude: -121.98857190000001},	
 	radius: 0,
+	enableAutocomplete: true,
 	inputBinding: {
 
         locationNameInput: $('#location')

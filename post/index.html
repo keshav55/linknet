@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css">
-  <link href="../css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
+  <link rel="stylesheet" type="text/css" href="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.css" />
+    <link href="../css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
 <noscript>
     <meta http-equiv="refresh" content="0; url=http://keshav55.github.io/linknet/nojs" />
 </noscript>
@@ -66,24 +67,25 @@
                 </li>
               </ul>
             </div>    
-
-            <div class="input-field col s6 m3">
-              <i class="material-icons prefix">today</i>
-              <input type="text" class="date start" id="startDate" name="startDate" value="" /> 
-              <label class="active" for="email">Start</label>
-            </div>
-            <div class="input-field col s6 m3">
-              <input type="text"  class="time start" id="startTime" name="startTime" value="" />
-              <label class="active" for="startTime">Time</label>
-            </div>
-            <div class="input-field col s6 m3">
-              <input type="text" class="date end" id="endDate" name="endDate" value="" /> 
-              <label class="active" for="endDate">End</label>
-            </div>
-            <div class="input-field col s6 m3">
-              <input type="text" class="time end" id="endTime" name="endTime" value="" /> 
-              <label class="active" for="endTime">Time</label>
-            </div>            
+            <div id="timepick" class="col s12 m12">
+              <div class="input-field col s6 m3">
+                <i class="material-icons prefix">today</i>
+                <input type="text" class="date start" id="startDate" name="startDate" value="" /> 
+                <label class="active" for="email">Start</label>
+              </div>
+              <div class="input-field col s6 m3">
+                <input type="text"  class="time start" id="startTime" name="startTime" value="" />
+                <label class="active" for="startTime">Time</label>
+              </div>
+              <div class="input-field col s6 m3">
+                <input type="text" class="date end" id="endDate" name="endDate" value="" /> 
+                <label class="active" for="endDate">End</label>
+              </div>
+              <div class="input-field col s6 m3">
+                <input type="text" class="time end" id="endTime" name="endTime" value="" /> 
+                <label class="active" for="endTime">Time</label>
+              </div>    
+            </div>        
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">location_on</i>
               <input id="location" type="text" class="validate">
@@ -104,6 +106,7 @@
   <script src="http://materializecss.com/bin/materialize.js"></script>
   <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js"></script>
   <script type="text/javascript" src="Datepair.js"></script>
   <script type="text/javascript" src="jquery.datepair.js"></script>
   <script src="post.js"></script>

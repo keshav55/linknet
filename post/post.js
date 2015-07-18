@@ -62,13 +62,16 @@ $(".logout").click(function(){
 		location.reload();
 	});
 });
-$('#jqueryExample .time').timepicker({
+    $('#timepick .time').timepicker({
         'showDuration': true,
         'timeFormat': 'g:ia'
-});
+    });
 
-$('#jqueryExample .date').datepicker({
-    'format': 'm/d/yyyy',
-    'autoclose': true
-});
-$('#jqueryExample').datepair();
+    $('#timepick .date').datepicker({
+        'format': 'm/d/yyyy',
+        'autoclose': true
+    });
+
+    // initialize datepair
+    var basicExampleEl = document.getElementById('timepick');
+    var datepair = new Datepair(basicExampleEl);

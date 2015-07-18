@@ -76,7 +76,7 @@ $('#us').locationpicker({
     }
 });
 $("#post").click(function(){
-	ref.child("posts").set({
+	ref.child("posts").push({
 	  title: $("#title").val(),
 	  author: ref.getAuth().uid,
 	  picture: $("#image").attr("src"),

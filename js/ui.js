@@ -147,8 +147,9 @@ ref.child("posts").once("value", function(snapshot) {
     // childData will be the actual contents of the child
     var childData = childSnapshot.val();
     console.log(childData);
-    $("#feed").append('<div class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><p>By '+childData.author+'<br>'+childData.date+'<br>'+childData.location+'<br>Volunteers needed: '+childData.needed+'<br>'+childData.description+'</div><div class="card-action"><a href="#">Join</a></div></div></div>');
+    $("#feed").append('<div class="col s12 m6"><div class="card"><div class="card-image"><img src="'+childData.picture+'"><span class="card-title">'+childData.title+'</span></div><div class="card-content"><ul class="collection"><li class="collection-item"><div>By '+childData.author+'<span class="secondary-content"><i class="material-icons">account_circle</i></a></div></li><li class="collection-item"><div>'+childData.date+'<span class="secondary-content"><i class="material-icons">today</i></a></div></li><li class="collection-item"><div>'+childData.location+'<span class="secondary-content"><i class="material-icons">location_on</i></a></div></li><li class="collection-item"><div>Volunteers needed: '+childData.needed+'<span class="secondary-content"><i class="material-icons">insert_chart</i></a></div></li><li class="collection-item"><div>'+childData.description=+'<span class="secondary-content"><i class="material-icons">subject</i></a></div></li></ul></div><div class="card-action"><a href="#">Join</a></div></div></div>');
             
-            
+	
+                        
   });
 });

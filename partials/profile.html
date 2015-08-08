@@ -40,12 +40,12 @@
             <div class="input-field col s12 m6">
               <ul class="collection">
                 <li class="collection-item avatar">
-                  <img id="image" src="http://keshav55.github.io/linknet/img/user.png" alt="" class="circle">
+                  <img id="image" src="{{data.image}}" alt="" class="circle">
                   <div class="file-field input-field">
                     <input placeholder="Change Picture" class="file-path validate" type="text"/>
                     <div style="opacity:0;"class="btn">
                       <span>Image</span>
-                      <input id="imgInp" type="file" accept="image/*"/>
+                      <input ng-model="data.image" type="file" accept="image/*"/>
                     </div>
                   </div>   
                 </li>
@@ -58,17 +58,17 @@
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">email</i>
-              <input id="email" type="email" class="validate">
+              <input ng-model="data.email" type="email" class="validate">
               <label class="active" for="email">Email</label>
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">call</i>
-              <input id="phone" type="tel" class="validate">
+              <input ng-model="data.phone" type="tel" class="validate">
               <label class="active" for="phone">Phone Number</label>
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">subject</i>
-              <textarea id="description" class="materialize-textarea" length="200"></textarea>
+              <textarea ng-model="data.description" class="materialize-textarea" length="200"></textarea>
               <label for="description">Description</label>
             </div>
           </div>

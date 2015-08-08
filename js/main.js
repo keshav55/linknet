@@ -40,6 +40,7 @@ app.factory("posts", ["$firebaseArray",
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
+  $scope.error = false;
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
@@ -54,7 +55,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       email: $scope.logemail,
       password: $scope.logpass
     }).then(function(authData) {
-      console.log("Logged in as:", authData.uid);
+      $route.reload();
     }).catch(function(error) {
       console.error("Authentication failed:", error);
       $scope.error = true;

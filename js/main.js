@@ -28,7 +28,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.factory("posts", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database where we will store our data
-    var posts = new Firebase("https://bridgecom.firebaseio.com/posts");
+    var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
 
     return $firebaseArray(ref);
   }

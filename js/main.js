@@ -37,7 +37,7 @@ app.factory("posts", ["$firebaseArray",
 /**
  * Controls all other Pages
  */
-app.controller("PageCtrl", function($scope, $firebaseObject) {
+app.controller("PageCtrl", ["$scope", "posts", function($scope, posts) {
   // download the data into a local object
   $scope.posts = posts;
 

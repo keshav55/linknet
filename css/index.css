@@ -45,3 +45,6 @@ input[type=range] {
 .card-title {
     text-shadow: 0px 0px 10px #000;
 }
+.show-false {
+    display: none;
+}

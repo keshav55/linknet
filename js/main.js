@@ -89,6 +89,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", function($scope, $firebaseAuth, $location) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.authObj = $firebaseAuth(ref);
+  $scope.authData = true;
   $scope.authObj.$onAuth(function(authData) {
     if (!authData) {
       $location.path('/');

@@ -38,7 +38,7 @@ app.factory("posts", ["$firebaseArray",
  * Controls all other Pages
  */
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
-  var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
+  var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {

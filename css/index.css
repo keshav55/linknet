@@ -42,3 +42,6 @@ input[type=range] {
     margin-top: 28px !important;
     border: none !important
 }
+.card-title {
+    text-shadow: 0px 0px 2px #000;
+}

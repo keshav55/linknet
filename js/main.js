@@ -55,7 +55,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       email: $scope.logemail,
       password: $scope.logpass
     }).then(function(authData) {
-      $route.reload();
+      location.reload();
     }).catch(function(error) {
       console.error("Authentication failed:", error);
       $scope.error = true;

@@ -48,7 +48,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       console.log("Logged out");
     }
     $('.modal-trigger').leanModal();
-    $('#feed .sidebar').pushpin({ top: '100px'});
+    $('#feed .sidebar').pushpin({ top: $('#feed').offset().top });
   });
 
 }]);

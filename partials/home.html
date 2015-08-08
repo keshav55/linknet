@@ -90,11 +90,11 @@
   <div class="container">
     <p></p>
     <div class="row">
-        <input ng-model="query">
+        <input ng-model="search.$">
 
     </div>
     <div class="row">
-        <div class="col s12 m6" ng-repeat="post in posts | filter:query">
+        <div class="col s12 m6" ng-repeat="post in posts | filter:search:strict">
             <div class="card">
                 <div class="card-image">
                     <img src="{{ post.picture }}">

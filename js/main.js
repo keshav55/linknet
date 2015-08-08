@@ -75,7 +75,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
           email: authData.password.email,
           image: "http://keshav55.github.io/linknet/img/user.png",
           phone: "None",
-          verified: "false",
+          verified: false,
           description: "None"
         }, function(){
           location.reload();

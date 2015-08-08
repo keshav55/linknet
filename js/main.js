@@ -40,6 +40,7 @@ app.factory("posts", ["$firebaseArray",
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
   // download the data into a local object
   $scope.posts = posts;
+  $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       console.log("Logged in as:", authData.uid);

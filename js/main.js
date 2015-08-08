@@ -86,7 +86,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
     });  
   };
 }])
-.controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", function($scope, $firebaseAuth, $location) {
+.controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.authObj = $firebaseAuth(ref);
   $scope.authData = true;

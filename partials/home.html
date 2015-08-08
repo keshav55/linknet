@@ -40,22 +40,22 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">email</i>
-            <input id="regemail" type="email" class="validate">
+            <input ng-model="regemail" type="email" class="validate">
             <label for="regemail" data-error="Invalid">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">vpn_key</i>
-            <input id="regpass" type="password" class="validate">
+            <input ng-model="regpass" type="password" class="validate">
             <label for="regpass">Password</label>
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a ng-click="register()" class=" modal-action waves-effect waves-green btn">Register</a>
     </div>
   </div>
   <div id="login_modal" class="modal">
@@ -84,38 +84,13 @@
     </div>
     <div class="modal-footer">
       <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <button id="login" ng-click="login()" class=" modal-action waves-effect waves-green btn">Log In</button>
+      <button ng-click="login()" class="modal-action waves-effect waves-green btn">Log In</button>
     </div>
   </div>
   <div class="container">
     <p></p>
     <div class="row" id="feed">
-        <div class="col s12 m6 sidebar">
-          <div class="input-field">
-            <i class="material-icons prefix">search</i>
-            <input id="icon_prefix" ng-model="query.$" type="text" class="validate">
-            <label for="icon_prefix">Search Events...</label>
-          </div>
 
-            <select ng-model="query.tags" class="browser-default">
-              <option value="">All</option>
-              <option value="Animals">Animals</option>
-              <option value="Art/Culture">Art/Culture</option>
-              <option value="Children/Youth">Children/Youth</option>
-              <option value="Community">Community</option>
-              <option value="Computers and Technology">Computers and Technology</option>
-              <option value="Disaster Relief">Disaster Relief</option>
-              <option value="Education">Education</option>
-              <option value="Employment">Employment</option>
-              <option value="Enviorment">Enviorment</option>
-              <option value="Health/Medicine">Health/Medicine</option>
-              <option value="Hunger">Hunger</option>
-              <option value="Media/Broadcasting">Media/Broadcasting</option>
-              <option value="Seniors">Seniors</option>
-              <option value="Sports/Recreation">Sports/Recreation</option>
-            </select>
-
-        </div>
         <div class="col s12 m6">
             <div ng-show="!filtered.length" class="card-panel">
               <span>No posts available.
@@ -177,6 +152,31 @@
                 </div>
             </div>
         </div>
+        <div class="col s12 m6 sidebar">
+          <div class="input-field">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" ng-model="query.$" type="text" class="validate">
+            <label for="icon_prefix">Search Events...</label>
+          </div>
 
+            <select ng-model="query.tags" class="browser-default">
+              <option value="">All</option>
+              <option value="Animals">Animals</option>
+              <option value="Art/Culture">Art/Culture</option>
+              <option value="Children/Youth">Children/Youth</option>
+              <option value="Community">Community</option>
+              <option value="Computers and Technology">Computers and Technology</option>
+              <option value="Disaster Relief">Disaster Relief</option>
+              <option value="Education">Education</option>
+              <option value="Employment">Employment</option>
+              <option value="Enviorment">Enviorment</option>
+              <option value="Health/Medicine">Health/Medicine</option>
+              <option value="Hunger">Hunger</option>
+              <option value="Media/Broadcasting">Media/Broadcasting</option>
+              <option value="Seniors">Seniors</option>
+              <option value="Sports/Recreation">Sports/Recreation</option>
+            </select>
+
+        </div>
     </div>
   </div>

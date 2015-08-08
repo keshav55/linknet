@@ -57,9 +57,23 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
     }).then(function(authData) {
       location.reload();
     }).catch(function(error) {
-      console.error("Authentication failed:", error);
       $("#logtitle").show();
     });
+  };
+  $scope.register = function(){
+    $scope.authObj.$createUser({
+      email: $scope.regemail,
+      password: $scope.regpass
+    }).then(function(userData) {
+      return $scope.authObj.$authWithPassword({
+        email: $scope.regemail,
+        password: $scope.regpass
+      });
+    }).then(function(authData) {
+      location.reload();
+    }).catch(function(error) {
+      $("#regtitle").show();
+    });  
   };
 }])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", function($scope, $firebaseAuth, $location) {

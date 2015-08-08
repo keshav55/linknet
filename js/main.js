@@ -44,9 +44,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
-      console.log("Logged in as:", authData.uid);
+      $scope.authData = true;
     } else {
-      console.log("Logged out");
+      $scope.authData = false;
     }
     $('.modal-trigger').leanModal();
   });
@@ -67,7 +67,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (!authData) {
-      $location.path('/')
+      $location.path('/');
     }
   });
 

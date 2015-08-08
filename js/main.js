@@ -41,4 +41,4 @@ app.controller("PageCtrl", ["$scope", "posts", function($scope, posts) {
   // download the data into a local object
   $scope.posts = posts;
 
-});
+}]);

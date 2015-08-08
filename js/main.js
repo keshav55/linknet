@@ -33,7 +33,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.controller("PageCtrl", function($scope, $firebaseObject) {
   var posts = new Firebase("https://bridgecom.firebaseio.com/posts");
   // download the data into a local object
-  $scope.posts = $firebaseObject(posts);
-  $scope.query = "DECA";
-  // putting a console.log here won't work, see below
+  $scope.posts = $firebaseArray(posts);
+
 });

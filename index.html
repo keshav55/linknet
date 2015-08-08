@@ -8,127 +8,27 @@
   <link rel="shortcut icon" href="img/logo.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <noscript>
     <meta http-equiv="refresh" content="0; url=http://keshav55.github.io/linknet/nojs" />
 </noscript>
-<body>
+<body ng-app="tutorialWebApp">
+    <div ng-view></div>
 
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-        <a href="#" class="brand-logo center">bridge</a>
-        <ul class="right hide-on-med-and-down">
-          <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
-          <li class="l_i"><a href="post">Post</a></li>
-          <li class="l_i"><a href="profile">Profile</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
-        </ul>
-        <ul class="left hide-on-med-and-down">
-          <li><a href="about">About</a></li>
-          <li><a href="contact">Contact</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav hide-on-large-only">
-          <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
-          <li class="l_i"><a href="post">Post</a></li>
-          <li class="l_i"><a href="profile">Profile</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
-          <li class="divider"></li>
-          <li><a href="about">About</a></li>
-          <li><a href="contact">Contact</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-  </div>
-  <div id="register_modal" class="modal">
-    <div class="modal-content">
-      <h4 >Register</h4>
-      <div class="divider"></div>
-      <p></p>
-      <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
-      <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
-      <p></p>
-      <div class="divider"></div>
-      <p id="regtitle" class="red-text">There was an error. Consider revising and try again.</p>
-      
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">email</i>
-            <input id="regemail" type="email" class="validate">
-            <label for="regemail" data-error="Invalid">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">vpn_key</i>
-            <input id="regpass" type="password" class="validate">
-            <label for="regpass">Password</label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a id="register" href="#" class=" modal-action waves-effect waves-green btn">Register</a>
-    </div>
-  </div>
-  <div id="login_modal" class="modal">
-    <div class="modal-content">
-      <h4>Log In</h4>
-      <div class="divider"></div>
-      <p></p>
-      <p class="fb_title red-text">There was an error. Consider revising and try again.</p>
-      <a class="fb waves-effect waves-light blue darken-1 btn"><i class="fa fa-facebook"></i> Log in with Facebook</a>
-      <p></p>  
-      <div class="divider"></div>
-      <p id="logtitle" class="red-text">There was an error. Consider revising and try again.</p>
-      <form class="col s12">
+    <!-- Vendor: Angular, followed by our custom Javascripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">email</i>
-            <input id="logemail" type="email" class="validate">
-            <label for="logemail" data-error="Invalid">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">vpn_key</i>
-            <input id="logpass" type="password" class="validate">
-            <label for="logpass">Password</label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a id="login" href="#" class=" modal-action waves-effect waves-green btn">Log In</a>
-    </div>
-  </div>
-  <div class="container">
-    <p></p>
-    <div class="row" id="feed">
+    <!-- Our Website Javascripts -->
+    <script src="http://materializecss.com/bin/materialize.js"></script>
+    <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
 
-      <div class="input-field col s12">
-        <i class="material-icons prefix">search</i>
-        <input id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Search Events...</label>
-      </div>
-    </div>
-  </div>
-  <!--Import jQuery before materialize.js-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="http://materializecss.com/bin/materialize.js"></script>
-  <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
-  <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-  <script src="js/ui.js"></script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

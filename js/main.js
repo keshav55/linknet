@@ -20,7 +20,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
-    .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
+    .when("/post", {templateUrl: "partials/post.html", controller: "ProfileCtrl"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -48,6 +48,16 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       console.log("Logged out");
     }
     $('.modal-trigger').leanModal();
+  });
+
+}])
+.controller("ProfileCtrl", ["$scope", "$firebaseAuth", function($scope, $firebaseAuth) {
+  var ref = new Firebase("https://bridgecom.firebaseio.com");
+  $scope.authObj = $firebaseAuth(ref);
+  $scope.authObj.$onAuth(function(authData) {
+    if (!authData) {
+      $window.location.href = '/';
+    }
   });
 
 }]);

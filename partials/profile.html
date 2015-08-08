@@ -29,6 +29,11 @@
   <div class="container">
      <div class="row">
             <div class="input-field col s12 m6">
+              <i class="material-icons prefix">account_circle</i>
+              <input ng-model="data.name" type="text" class="validate">
+              <label class="active" for="name">Name</label>
+            </div>
+            <div class="input-field col s12 m6">
               <ul class="collection">
                 <li class="collection-item avatar">
                   <img id="image" src="{{data.image}}" alt="" class="circle">
@@ -42,11 +47,6 @@
                 </li>
               </ul>
             </div>    
-            <div class="input-field col s12 m6">
-              <i class="material-icons prefix">account_circle</i>
-              <input ng-model="data.name" type="text" class="validate">
-              <label class="active" for="name">Name</label>
-            </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">email</i>
               <input ng-model="data.email" type="email" class="validate">

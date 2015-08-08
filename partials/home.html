@@ -92,8 +92,8 @@
     <div class="row" id="feed">
 
         <div class="col s12 m6">
-            <div ng-show="!posts.length">No colors available</div>
-            <div class="card" ng-repeat="post in posts | filter:query">
+            <div ng-show="!filtered.length">No colors available</div>
+            <div class="card" "post in filtered = (posts | filter:query)">
                 <div class="card-image">
                     <img src="{{ post.picture }}">
                     <span class="card-title">{{ post.title }}</span>

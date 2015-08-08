@@ -60,6 +60,6 @@
               <label class="active" for="description">Description</label>
             </div>
           </div>
-          <button ng-hide="data.name.$dirty && data.name.$invalid || data.phone.$dirty && data.phone.$invalid || data.description.$dirty && data.description.$invalid || data.image.$dirty && data.image.$invalid" ng-disabled="data.name.$dirty && data.name.$invalid || data.phone.$dirty && data.phone.$invalid || data.description.$dirty && data.description.$invalid || data.image.$dirty && data.image.$invalid" ng-click="save()" class="waves-effect waves-green btn">Save</button>
+          <button ng-hide="data.name.$error.required || data.phone.$error.required || data.description.$error.required || data.image.$error.required" ng-disabled="data.name.$error.required || data.phone.$error.required || data.description.$error.required || data.image.$error.required" ng-click="save()" class="waves-effect waves-green btn">Save</button>
      </div>
   </div>

@@ -56,7 +56,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (!authData) {
-      $window.location.href = '/';
+      $location.path('/')
     }
   });
 

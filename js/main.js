@@ -37,8 +37,15 @@ app.factory("posts", ["$firebaseArray",
 /**
  * Controls all other Pages
  */
-app.controller("PageCtrl", ["$scope", "posts", function($scope, posts) {
+app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
   // download the data into a local object
   $scope.posts = posts;
+  $scope.authObj.$onAuth(function(authData) {
+    if (authData) {
+      console.log("Logged in as:", authData.uid);
+    } else {
+      console.log("Logged out");
+    }
+  });
 
 }]);

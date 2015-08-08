@@ -94,6 +94,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
     if (authData) {
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
       $scope.data = $firebaseObject(user);
+      if($scope.data.verified == "true") {
+        $scope.verified = true;
+      }
     } else {
       $location.path('/');
     }

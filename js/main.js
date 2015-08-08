@@ -25,14 +25,20 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
+app.factory("posts", ["$firebaseArray",
+  function($firebaseArray) {
+    // create a reference to the database where we will store our data
+    var posts = new Firebase("https://bridgecom.firebaseio.com/posts");
 
+    return $firebaseArray(ref);
+  }
+]);
 
 /**
  * Controls all other Pages
  */
 app.controller("PageCtrl", function($scope, $firebaseObject) {
-  var posts = new Firebase("https://bridgecom.firebaseio.com/posts");
   // download the data into a local object
-  $scope.posts = $firebaseArray(posts);
+  $scope.posts = posts;
 
 });

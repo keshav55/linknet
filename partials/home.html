@@ -92,7 +92,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">search</i>
-        <input id="icon_prefix"ng-model="searchText"type="text" class="validate">
+        <input id="icon_prefix" ng-model="searchText" type="text" class="validate">
         <label for="icon_prefix">Search Events...</label>
       </div>
     </div>
@@ -115,7 +115,7 @@
                         </li>
                         <li class="collection-item">
                             <div>
-                                <i>{{ post.date }}</i>
+                                <i>{{ post.tags }}</i>
                                 <span class="secondary-content">
                                     <i class="material-icons">label</i>
                                 </span>
@@ -123,6 +123,7 @@
                         </li>
                         <li class="collection-item">
                             <div>
+                                {{ post.date }}
                                 <span class="secondary-content">
                                     <i class="material-icons">today</i>
                                 </span>

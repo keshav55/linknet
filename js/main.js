@@ -51,7 +51,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
   });
   $scope.login = function(){
     $scope.authObj.$authWithPassword({
-      email: = $scope.logemail,
+      email: $scope.logemail,
       password: $scope.logpass
     }).then(function(authData) {
       console.log("Logged in as:", authData.uid);

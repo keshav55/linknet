@@ -153,9 +153,9 @@
             <input id="icon_prefix" ng-model="query" type="text" class="validate">
             <label for="icon_prefix">Search Events...</label>
           </div>
-          <div class="input-field col s12">
-            <select ng-model="query.tags">
-              <option value="" disabled selected>All</option>
+
+            <select ng-model="query.tags" class="browser-default">
+              <option value="">All</option>
               <option value="Animals">Animals</option>
               <option value="Art/Culture">Art/Culture</option>
               <option value="Children/Youth">Children/Youth</option>
@@ -171,8 +171,7 @@
               <option value="Seniors">Seniors</option>
               <option value="Sports/Recreation">Sports/Recreation</option>
             </select>
-            <label>Materialize Select</label>
-          </div>
+
         </div>
     </div>
   </div>

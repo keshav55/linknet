@@ -70,7 +70,17 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
         password: $scope.regpass
       });
     }).then(function(authData) {
-      location.reload();
+        ref.child("users").child(authData.uid).set({
+          name: authData.password.email, 
+          email: authData.password.email,
+          image: "http://keshav55.github.io/linknet/img/user.png",
+          phone: "None",
+          verified: "False",
+          description: "None"
+        }, function(){
+          location.reload();
+        });
+      
     }).catch(function(error) {
       $("#regtitle").show();
     });  

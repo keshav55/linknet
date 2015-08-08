@@ -49,7 +49,17 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
     }
     $('.modal-trigger').leanModal();
   });
-
+  $scope.login = function(){
+    $scope.authObj.$authWithPassword({
+      email: = $scope.logemail,
+      password: $scope.logpass
+    }).then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+      $scope.error = true;
+    });
+  };
 }])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", function($scope, $firebaseAuth, $location) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");

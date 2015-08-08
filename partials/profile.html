@@ -31,7 +31,7 @@
      <div class="row">
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">account_circle</i>
-              <input ng-model="data.name" type="text" class="validate">
+              <input ng-model="data.name" type="text" class="validate" required>
               <label class="active" for="name">Name</label>
             </div>
             <div class="input-field col s12 m6">
@@ -42,7 +42,7 @@
                     <input placeholder="Change Picture" class="file-path validate" type="text"/>
                     <div style="opacity:0;"class="btn">
                       <span>Image</span>
-                      <input ng-model="data.image" type="file" accept="image/*"/>
+                      <input ng-model="data.image" type="file" accept="image/*" required/>
                     </div>
                   </div>   
                 </li>
@@ -51,12 +51,12 @@
 
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">call</i>
-              <input ng-model="data.phone" type="tel" class="validate">
+              <input ng-model="data.phone" type="tel" class="validate" required>
               <label class="active" for="phone">Phone Number</label>
             </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">subject</i>
-              <textarea ng-model="data.description" class="materialize-textarea" length="200"></textarea>
+              <textarea ng-model="data.description" class="materialize-textarea" length="200" required></textarea>
               <label class="active" for="description">Description</label>
             </div>
           </div>

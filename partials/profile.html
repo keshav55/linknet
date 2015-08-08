@@ -43,7 +43,7 @@
                     <input placeholder="Change Picture" class="file-path validate" type="text"/>
                     <div style="opacity:0;"class="btn">
                       <span>Image</span>
-                      <input name="image" ng-model="data.image" type="file" accept="image/*" required/>
+                      <input name="image" id="imgInp" ng-model="data.image" type="file" accept="image/*" required/>
                     </div>
                   </div>   
                 </li>
@@ -61,6 +61,6 @@
               <label class="active" for="description">Description</label>
             </div>
           </div>
-          <button ng-hide="profileForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="save()" class="waves-effect waves-green btn">Save</button>
+          <button ng-hide="profileForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="save()" ng-disabled="profileForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="save()" class="waves-effect waves-green btn">Save</button>
      </div>
   </div>

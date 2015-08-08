@@ -98,5 +98,28 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       $location.path('/');
     }
   });
+  function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#image').attr('src', e.target.result);
+              }
+
+              reader.readAsDataURL(input.files[0]);
+          }
+  }
+  $("#imgInp").change(function(){
+      readURL(this);
+  });
+  $scope.save = function(){
+        ref.child("users").child(ref.getAuth().uid).update({
+          name: $scope.data.name, 
+          image: $("#image").attr("src"),
+          description: $scope.data.description, 
+          phone: $scope.data.phone
+        });      
+  }
+
 
 }]);

@@ -47,6 +47,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
     } else {
       console.log("Logged out");
     }
+    $('.modal-trigger').leanModal();
   });
 
 }]);

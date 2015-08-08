@@ -38,7 +38,7 @@ app.factory("posts", ["$firebaseArray",
  * Controls all other Pages
  */
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
-  // download the data into a local object
+  var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
   $scope.posts = posts;
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {

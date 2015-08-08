@@ -5,51 +5,22 @@
         <a href="#" class="brand-logo center">bridge</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#/">Home</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
-          <li class="l_i"><a href="#/post">Post</a></li>
-          <li class="l_i"><a href="#/profile">Profile</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
+          <li ng-show="authData"><a href="#/post">Post</a></li>
+          <li ng-show="authData"><a ng-click="authObj.$unauth()" href="">Log Out</a></li>
         </ul>
         <ul class="left hide-on-med-and-down">
+          <li><a href="#/about">About</a></li>
           <li><a href="#/contact">Contact</a></li>
+
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#/">Home</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
-          <li class="l_i"><a href="#/post">Post</a></li>
-          <li class="l_i"><a href="#/profile">Profile</a></li>
-          <li class="l_i"><a href="#">Log Out</a></li>
+          <li ng-show="authData"><a href="#/post">Post</a></li>
+          <li ng-show="authData"><a ng-click="authObj.$unauth()" href="">Log Out</a></li>
           <li class="divider"></li>
+          <li><a href="#/about">About</a></li>
           <li><a href="#/contact">Contact</a></li>
-          <li><a href="#/about">Contact</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-  </div>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
 
-        <a href="#" class="brand-logo center">bridge</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="../">Home</a></li>
-          <li class="l_i"><a href="../post">Post</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
-        </ul>
-        <ul class="left hide-on-med-and-down">
-          <li><a href="../about">About</a></li>
-          <li><a href="../contact">Contact</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="../">Home</a></li>
-          <li class="l_i"><a href="../post">Post</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
-          <li class="divider"></li>
-          <li><a href="../about">About</a></li>
-          <li><a href="../contact">Contact</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
@@ -103,7 +74,7 @@
               <label for="description">Description</label>
             </div>
           </div>
-          <a id="save" href="#" class="waves-effect waves-green btn">Save</a>
+          <a id="save" ng-click="save()" class="waves-effect waves-green btn">Save</a>
         </form>
      </div>
   </div>

@@ -15,15 +15,14 @@
           <li><a href="#/contact">Contact</a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="#/">Home</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#login_modal">Log In</a></li>
-          <li class="l_o"><a class="modal-trigger" href="#register_modal">Register</a></li>
-          <li class="l_i"><a href="#/post">Post</a></li>
-          <li class="l_i"><a href="#/profile">Profile</a></li>
-          <li class="l_i logout"><a href="#">Log Out</a></li>
+          <li ng-hide="authData"><a class="modal-trigger" href="#login_modal">Log In</a></li>
+          <li ng-hide="authData"><a class="modal-trigger" href="#register_modal">Register</a></li>
+          <li ng-show="authData"><a href="#/post">Post</a></li>
+          <li ng-show="authData"><a href="#/profile">Profile</a></li>
+          <li ng-show="authData"><a ng-click="authObj.$unauth()" href="">Log Out</a></li>
           <li class="divider"></li>
+          <li><a href="#/about">About</a></li>
           <li><a href="#/contact">Contact</a></li>
-          <li><a href="#/about">Contact</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>

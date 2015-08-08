@@ -58,7 +58,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
       location.reload();
     }).catch(function(error) {
       console.error("Authentication failed:", error);
-      $scope.error = true;
+      $scope.wrong = true;
     });
   };
 }])

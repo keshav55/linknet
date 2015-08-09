@@ -194,6 +194,6 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$location", "$stateParams", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject, $stateParams) {
-  $scope.post = $stateParams.postId;
+  $scope.post = "he";
 
 }]);

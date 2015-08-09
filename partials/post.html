@@ -28,7 +28,111 @@
       </div>
     </nav>
   </div>
+  <div class="container">    
+     <br/>
+     <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">info_outline</i>
+              <input id="title" type="text" class="validate">
+              <label class="active" for="name">Title</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <ul class="collection">
+                <li class="collection-item avatar">
+                  <img id="image" src="http://materializecss.com/images/sample-1.jpg" alt="" class="circle">
+                  <div class="file-field input-field">
+                    <input placeholder="Change Picture" class="file-path validate" type="text"/>
+                    <div style="opacity:0;"class="btn">
+                      <span>Image</span>
+                      <input id="imgInp" type="file" accept="image/*"/>
+                    </div>
+                  </div>   
+                </li>
+              </ul>
+            </div>    
+            <div class="input-field col s12 m3">
+                <i class="material-icons prefix">today</i>
+                <input type="date" class="datepicker" id="startDate" name="startDate" value="" /> 
+                <label class="active" for="startDate">Start</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="startTime" class="browser-default">
+                      <option value="12 AM" >12 AM</option>
+                      <option value="1 AM">1 AM</option>
+                      <option value="2 AM">2 AM</option>
+                      <option value="3 AM">3 AM</option>
+                      <option value="4 AM">4 AM</option>
+                      <option value="5 AM">5 AM</option>
+                      <option value="6 AM">6 AM</option>
+                      <option value="7 AM">7 AM</option>
+                      <option value="8 AM">8 AM</option>
+                      <option value="9 AM">9 AM</option>
+                      <option value="10 AM">10 AM</option>
+                      <option value="11 AM">11 AM</option>
+                      <option value="12 PM">12 AM</option>
+                      <option value="1 PM">1 PM</option>
+                      <option value="2 PM" selected="true">2 PM</option>
+                      <option value="3 PM">3 PM</option>
+                      <option value="4 PM">4 PM</option>
+                      <option value="5 PM">5 PM</option>
+                      <option value="6 PM">6 PM</option>
+                      <option value="7 PM">7 PM</option>
+                      <option value="8 PM">8 PM</option>
+                      <option value="9 PM">9 PM</option>
+                      <option value="10 PM">10 PM</option>
+                      <option value="11 PM">11 PM</option>
+                                                              
+                </select>
+            </div>
+            <div class="input-field col s12 m3">
+                <input type="date" class="datepicker" id="endDate" name="endDate" value="" /> 
+                <label class="active" for="endDate">End</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="endTime" class="browser-default">
+                      <option value="12 AM" >12 AM</option>
+                      <option value="1 AM">1 AM</option>
+                      <option value="2 AM">2 AM</option>
+                      <option value="3 AM">3 AM</option>
+                      <option value="4 AM">4 AM</option>
+                      <option value="5 AM">5 AM</option>
+                      <option value="6 AM">6 AM</option>
+                      <option value="7 AM">7 AM</option>
+                      <option value="8 AM">8 AM</option>
+                      <option value="9 AM">9 AM</option>
+                      <option value="10 AM">10 AM</option>
+                      <option value="11 AM">11 AM</option>
+                      <option value="12 PM">12 AM</option>
+                      <option value="1 PM">1 PM</option>
+                      <option value="2 PM">2 PM</option>
+                      <option value="3 PM" selected="true">3 PM</option>
+                      <option value="4 PM">4 PM</option>
+                      <option value="5 PM">5 PM</option>
+                      <option value="6 PM">6 PM</option>
+                      <option value="7 PM">7 PM</option>
+                      <option value="8 PM">8 PM</option>
+                      <option value="9 PM">9 PM</option>
+                      <option value="10 PM">10 PM</option>
+                      <option value="11 PM">11 PM</option>
+                                                              
+                </select>
+            </div>        
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">location_on</i>
+              <input id="location" type="text" class="validate">
+              <label class="active" for="name">Location</label>
+            </div>
 
-  <div class="container">
-      Post
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">subject</i>
+              <textarea id="description" class="materialize-textarea" length="200"></textarea>
+              <label for="description">Description</label>
+            </div>
+          </div>
+          
+          <a id="post" href="#" class="waves-effect waves-green btn">Post</a>
+        </form>
+     </div>
   </div>

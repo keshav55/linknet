@@ -31,11 +31,11 @@
   <div class="container">    
      <br/>
      <div class="row">
-        <form class="col s12">
+        <form name="postForm" class="col s12" novalidate>
           <div class="row">
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">info_outline</i>
-              <input id="title" type="text" class="validate">
+              <input name="title" ng-model="title" type="text" class="validate" required>
               <label class="active" for="name">Title</label>
             </div>
             <div class="input-field col s12 m6">
@@ -43,10 +43,10 @@
                 <li class="collection-item avatar">
                   <img id="image" src="http://materializecss.com/images/sample-1.jpg" alt="" class="circle">
                   <div class="file-field input-field">
-                    <input placeholder="Change Picture" class="file-path validate" type="text"/>
+                    <input placeholder="Change Picture" class="file-path validate" type="text" />
                     <div style="opacity:0;"class="btn">
                       <span>Image</span>
-                      <input id="imgInp" type="file" accept="image/*"/>
+                      <input id="imgInp" ng-model="picture" name="picture" type="file" accept="image/*" required/>
                     </div>
                   </div>   
                 </li>
@@ -54,11 +54,11 @@
             </div>    
             <div class="input-field col s12 m3">
                 <i class="material-icons prefix">today</i>
-                <input type="date" class="datepicker" id="startDate" name="startDate" value="" /> 
+                <input type="date" class="datepicker" ng-model="startDate" name="startDate" value="" required/> 
                 <label class="active" for="startDate">Start</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="startTime" class="browser-default">
+                <select name="startTime" ng-model="startTime" class="browser-default">
                       <option value="12 AM" >12 AM</option>
                       <option value="1 AM">1 AM</option>
                       <option value="2 AM">2 AM</option>
@@ -87,11 +87,11 @@
                 </select>
             </div>
             <div class="input-field col s12 m3">
-                <input type="date" class="datepicker" id="endDate" name="endDate" value="" /> 
+                <input type="date" class="datepicker" ng-model="endDate" name="endDate" value="" required/> 
                 <label class="active" for="endDate">End</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="endTime" class="browser-default">
+                <select ng-model="endTime" name="endTime" class="browser-default">
                       <option value="12 AM" >12 AM</option>
                       <option value="1 AM">1 AM</option>
                       <option value="2 AM">2 AM</option>
@@ -121,11 +121,11 @@
             </div>        
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">location_on</i>
-              <input id="location" type="text" class="validate">
+              <input name="location" ng-model="location" type="text" class="validate" required>
               <label class="active" for="name">Location</label>
             </div>
             <div class="input-field col s12 m6">
-              <select class="browser-default">
+              <select name="tags" ng-model="tags" class="browser-default">
                 <option value="Animals">Animals</option>
                 <option value="Art/Culture">Art/Culture</option>
                 <option value="Children">Children</option>
@@ -144,12 +144,12 @@
             </div>
             <div class="input-field col s12 m12">
               <i class="material-icons prefix">subject</i>
-              <textarea id="description" class="materialize-textarea" length="200"></textarea>
+              <textarea ng-model="description" name="description" class="materialize-textarea" length="200" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>
           <div id="us"></div>
-          <button ng-hide="postForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="save()" ng-disabled="profileForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="post()" class="waves-effect waves-green btn">Save</button>
+          <button ng-hide="postForm.title.$error.required || postForm.startDate.$error.required || postForm.startTime.$error.required || postForm.endDate.$error.required || postForm.endTime.$error.required || postForm.location.$error.required || postForm.tags.$error.required || postForm.description.$error.required" ng-disabled="postForm.title.$error.required || postForm.startDate.$error.required || postForm.startTime.$error.required || postForm.endDate.$error.required || postForm.endTime.$error.required || postForm.location.$error.required || postForm.tags.$error.required || postForm.description.$error.required" ng-click="post()"  class="waves-effect waves-green btn">Save</button>
         </form>
      </div>
   </div>

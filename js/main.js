@@ -132,7 +132,6 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-      // Attach an asynchronous callback to read the data at our posts reference
       user.child("verified").once("value", function(snapshot) {
         if(snapshot.val()== false) {
           $location.path('/');
@@ -140,6 +139,20 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       }, function (errorObject) {
         $location.path('/');
       });
+      $scope.post = function(){
+        user.child("verified").once("value", function(snapshot) {
+          ref.child("posts").push({
+            title: $scope.title,
+            author: snapshot.child("name").val(),
+            authorid: authData.uid,
+            picture: $("#image").attr("src"),
+            location: $scope.location,
+            date: $scope.startTime + " " + $scope.startDate + " to " + $scope.endTime + " " + $scope.endDate,
+            description: $scope.description
+          }); 
+        });  
+      };
+
     } else {
       $location.path('/');
     }
@@ -158,19 +171,21 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
           locationNameInput: $('#location')
       }
   });
-  $scope.post = function(){
-    ref.child("posts").push({
-      title: $("#title").val(),
-      author: name,
-      picture: $("#image").attr("src"),
-      location: $("#location").val(),
-      date: $("#startTime").val()+ " " +$("#startDate").val() + " to " + $("#endTime").val()+ " " +$("#endDate").val(),
-      needed: $("#number").val(),
-      volunteers: 'none',
-      affiliates: $("#affiliates").val(),
-      description: $("#description").val()
-    });   
+  function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#image').attr('src', e.target.result);
+              }
+
+              reader.readAsDataURL(input.files[0]);
+          }
   }
+  $("#imgInp").change(function(){
+      readURL(this);
+  });
+
 
 
 }]);

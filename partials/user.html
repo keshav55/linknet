@@ -33,24 +33,18 @@
      <div class="row">
         <div class="col s12 m6 offset-m3">
 
-             <div ng-show="show" class="card" >
-                        <div class="card-image">
-                            <img src="{{ user.image }}"/>
-                            <span class="card-title">{{ user.name }}</span>
-                        </div>
-                        <div class="card-content">
-                            <ul class="collection">
-                                <li class="collection-item">
-                                    <div>
-                                        By <b>{{ user.description }}</b>
-                                        <span class="secondary-content">
-                                            <i class="material-icons">account_circle</i>
-                                        </span>
-                                    </div>
-                                </li>
+             <div ng-show="show" >
+               <ul class="collection">
+                  <li class="collection-item avatar">
+                    <img src="{{ user.image }}" alt="" class="circle">
+                    <span class="title">{{ user.name }}</span>
+                    <p>{{ user.email }} <br>
+                       {{ user.phone }} </br>
+                       {{ user.description }}
+                    </p>
+                  </li>
 
-                            </ul>
-                        </div>
+               </ul>
 
              </div>
         </div>

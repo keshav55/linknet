@@ -209,11 +209,16 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);
-  console.log($scope.post);
   $scope.post.$loaded(
     function(data) {
-      $scope.show = true;
-      $scope.loading = false;
+      if(data.author) {
+        $scope.show = true;
+        $scope.loading = false;
+       
+      } else {
+        $scope.none = true;
+        $scope.loading = false;        
+      }
     },
     function(error) {
       $scope.none = true;

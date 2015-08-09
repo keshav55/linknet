@@ -138,7 +138,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
           $location.path('/');
         }
       }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
+        $location.path('/');
       });
     } else {
       $location.path('/');

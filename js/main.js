@@ -144,7 +144,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
               picture: $("#image").attr("src"),
               location: $scope.location,
               tags: $scope.tags,
-              date: $scope.startTime + " " + document.getElementById("startDate").value + " to " + $scope.endTime + " " + document.getElementById("endDate").value,
+              date: $scope.startTime + " on " + document.getElementById("startDate").value + " to " + $scope.endTime + " on " + document.getElementById("endDate").value,
               description: $scope.description
             }); 
         };

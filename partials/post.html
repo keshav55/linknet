@@ -30,8 +30,13 @@
   </div>
   <div class="container">    
      <br/>
+    <div ng-show="posting">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
      <div class="row">
-        <form name="postForm" class="col s12" novalidate>
+        <form name="postForm" class="col s12" ng-hide="posting" novalidate>
           <div class="row">
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">info_outline</i>

@@ -146,6 +146,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
           $location.path('/');
         }
         $scope.post = function(){
+          $scope.posting = true;
             ref.child("posts").push({
               title: $scope.title,
               author: snapshot.child("name").val(),

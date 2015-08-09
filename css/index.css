@@ -63,3 +63,8 @@ input[type=range] {
 .card-action i {
     font-size: inherit !important;
 }
+.side-nav {
+    color: #fff;
+    background-color: #333;
+
+}

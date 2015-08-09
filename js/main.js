@@ -47,6 +47,7 @@ app.factory("posts", ["$firebaseArray",
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $firebaseAuth, $firebaseObject, posts) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
+  $(".button-collapse").sideNav();
   $scope.loading = true;
   $scope.posts.$loaded(
     function(data) {

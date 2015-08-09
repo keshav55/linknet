@@ -104,6 +104,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
+  $(".button-collapse").sideNav();
   $scope.authObj = $firebaseAuth(ref);
   $scope.authData = true;
   $scope.authObj.$onAuth(function(authData) {
@@ -141,6 +142,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("PostCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
+  $(".button-collapse").sideNav();
   $scope.authObj = $firebaseAuth(ref);
   $scope.authData = true;
   $scope.tags = "Animals";
@@ -211,6 +213,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
+  $(".button-collapse").sideNav();
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);
@@ -268,6 +271,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("User", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
+  $(".button-collapse").sideNav();
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   var data = new Firebase("https://bridgecom.firebaseio.com/users/"+$route.current.params.userId);
   $scope.user = $firebaseObject(data);

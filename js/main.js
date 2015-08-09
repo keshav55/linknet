@@ -294,7 +294,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       $scope.data = $firebaseObject(user);
       $scope.data.$loaded(
         function(data) {
-          if(data.name) {
+          if(data.image) {
             $scope.show = true;
             $scope.loading = false;
            

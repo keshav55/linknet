@@ -20,7 +20,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
-    .when("/post", {templateUrl: "partials/post.html", controller: "ProfileCtrl"})
+    .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -139,19 +139,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       }, function (errorObject) {
         $location.path('/');
       });
-      $scope.post = function(){
-        user.child("verified").once("value", function(snapshot) {
-          ref.child("posts").push({
-            title: $scope.title,
-            author: snapshot.child("name").val(),
-            authorid: authData.uid,
-            picture: $("#image").attr("src"),
-            location: $scope.location,
-            date: $scope.startTime + " " + $scope.startDate + " to " + $scope.endTime + " " + $scope.endDate,
-            description: $scope.description
-          }); 
-        });  
-      };
+
 
     } else {
       $location.path('/');

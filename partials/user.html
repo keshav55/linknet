@@ -38,10 +38,22 @@
                   <li class="collection-item avatar">
                     <img src="{{ user.image }}" alt="" class="circle">
                     <span class="title">{{ user.name }}</span>
-                    <p>{{ user.email }} <br>
-                       {{ user.phone }} </br>
-                       {{ user.description }}
-                    </p>
+                     <table>
+                        <tbody>
+                          <tr>
+                            <td><b>Email:</b></td>
+                            <td>{{ user.email }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Phone Number</b></td>
+                            <td>{{ user.phone }}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Description</b></td>
+                            <td>{{ user.description }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                   </li>
 
                </ul>

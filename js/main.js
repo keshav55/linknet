@@ -216,6 +216,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
         $scope.loading = false;
        
       } else {
+        console.log("D");
         $scope.none = true;
         $scope.loading = false;        
       }

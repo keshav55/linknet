@@ -198,4 +198,5 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);
   console.log($firebaseObject(data));
+  console.log("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
 }]);

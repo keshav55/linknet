@@ -193,7 +193,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 
 
 }])
-.controller("Detail", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $firebaseObject, $routeParams) {
+.controller("Detail", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);

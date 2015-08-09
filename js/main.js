@@ -202,7 +202,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 
 
 }])
-.controller("Detail", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
+.controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);
@@ -258,7 +258,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
     });  
   };  
 }])
-.controller("User", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
+.controller("User", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
   var data = new Firebase("https://bridgecom.firebaseio.com/users/"+$route.current.params.userId);
   $scope.user = $firebaseObject(data);

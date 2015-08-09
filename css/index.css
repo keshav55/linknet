@@ -68,5 +68,7 @@ input[type=range] {
 }
 .side-nav a {
     color: #fff;
-
+}
+.side-nav li {
+    border-bottom: #444 1px solid;
 }

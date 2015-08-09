@@ -20,7 +20,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
-    .when("/post", {templateUrl: "partials/post.html", controller: "ProfileCtrl"})
+    .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -116,6 +116,35 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   });
   $scope.save = function(){
         ref.child("users").child(ref.getAuth().uid).update({
+          name: $scope.data.name, 
+          image: $("#image").attr("src"),
+          description: $scope.data.description, 
+          phone: $scope.data.phone
+        });      
+  }
+
+
+}])
+.controller("PostCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
+  var ref = new Firebase("https://bridgecom.firebaseio.com");
+  $scope.authObj = $firebaseAuth(ref);
+  $scope.authData = true;
+  $scope.authObj.$onAuth(function(authData) {
+    if (authData) {
+      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid+"/verified");
+      // Attach an asynchronous callback to read the data at our posts reference
+      user.once("value", function(snapshot) {
+        console.log(snapshot.val());
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
+    } else {
+      $location.path('/');
+    }
+  });
+
+  $scope.post = function(){
+        ref.child("posts").child(ref.getAuth().uid).update({
           name: $scope.data.name, 
           image: $("#image").attr("src"),
           description: $scope.data.description, 

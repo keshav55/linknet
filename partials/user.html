@@ -20,6 +20,7 @@
           <li ng-hide="authData"><a class="modal-trigger" href="#login_modal">Log In</a></li>
           <li ng-hide="authData"><a class="modal-trigger" href="#register_modal">Register</a></li>
           <li id="post" ng-show="authData" class="show-{{user.verified}}"><a href="#/post">Post</a></li>
+          <li id="post" ng-show="authData" class="show-{{data.verified}}"><a href="#/post">Post</a></li>
           <li ng-show="authData"><a href="#/profile">Profile</a></li>
           <li ng-show="authData"><a ng-click="authObj.$unauth()" href="">Log Out</a></li>
           <li class="divider"></li>

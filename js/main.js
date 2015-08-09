@@ -1,16 +1,4 @@
-/**
- * AngularJS Tutorial 1
- * @author Nick Kaye <nick.c.kaye@gmail.com>
- */
-
-/**
- * Main AngularJS Web Application
- */
-var app = angular.module('tutorialWebApp', ['ngRoute', "firebase"]);
-
-/**
- * Configure the Routes
- */
+var app = angular.module('bridge', ['ngRoute', "firebase"]);
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     // Home

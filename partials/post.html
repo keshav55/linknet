@@ -121,7 +121,7 @@
             </div>        
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">location_on</i>
-              <input name="location" id="location" type="text" class="validate" required>
+              <input name="location" ng-model="location" type="text" class="validate" required>
               <label class="active" for="name">Location</label>
             </div>
             <div class="input-field col s12 m6">
@@ -144,12 +144,12 @@
             </div>
             <div class="input-field col s12 m12">
               <i class="material-icons prefix">subject</i>
-              <textarea id="description" name="description" class="materialize-textarea" length="200" required></textarea>
+              <textarea ng-model="description" name="description" class="materialize-textarea" length="200" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>
           <div id="us"></div>
-          <button ng-hide="postForm.title.$error.required || postForm.startDate.$error.required" ng-click="post()" class="waves-effect waves-green btn">Save</button>
+          <button ng-hide="postForm.title.$error.required || postForm.startDate.$error.required || postForm.location.$error.required || postForm.description.$error.required" ng-click="post()" class="waves-effect waves-green btn">Save</button>
         </form>
      </div>
   </div>

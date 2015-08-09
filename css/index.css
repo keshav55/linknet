@@ -51,3 +51,6 @@ input[type=range] {
 .hide-false {
     display: block !important;
 }
+.card-action i {
+    font-size: inherit !important;
+}

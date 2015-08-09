@@ -139,19 +139,6 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       }, function (errorObject) {
         $location.path('/');
       });
-      $scope.post = function(){
-        user.child("verified").once("value", function(snapshot) {
-          ref.child("posts").push({
-            title: $scope.title,
-            author: snapshot.child("name").val(),
-            authorid: authData.uid,
-            picture: $("#image").attr("src"),
-            location: $scope.location,
-            date: $scope.startTime + " " + $scope.startDate + " to " + $scope.endTime + " " + $scope.endDate,
-            description: $scope.description
-          }); 
-        });  
-      };
 
     } else {
       $location.path('/');

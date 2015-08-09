@@ -129,7 +129,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
           description: $scope.data.description, 
           phone: $scope.data.phone
         });      
-  }
+  };
 
 
 }])

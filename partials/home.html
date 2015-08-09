@@ -132,10 +132,10 @@
                 <img src="{{ post.picture }}" alt="" class="circle">
                 <a class="title" href="#/posts/{{ post.$id }}"><b>{{ post.title }}</b></a>
                 <p></p>
-                <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br>
-                {{ post.date }}
+                <p><i class="material-icons">account_circle</i> By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br>
+                <i class="material-icons">today</i> {{ post.date }}
                 <br>
-                  {{ post.location }}
+                  <i class="material-icons">location_on</i> {{ post.location }}
                 </p>
               </li>
             </ul>

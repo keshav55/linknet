@@ -34,7 +34,15 @@
      <br/>
      <div class="row">
         <div class="col s12 m6 offset-m3">
-
+            <div ng-show="error" class="card-panel">
+              <span>This post doesn't exist.
+              </span>
+            </div>
+            <div ng-show="loading">
+              <div class="progress">
+                  <div class="indeterminate"></div>
+              </div>
+            </div>
              <div ng-show="show" >
                <ul class="collection">
                   <li class="collection-item avatar">

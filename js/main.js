@@ -28,10 +28,6 @@ app.factory("posts", ["$firebaseArray",
     return $firebaseArray(ref);
   }
 ]);
-
-/**
- * Controls all other Pages
- */
 app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $firebaseAuth, $firebaseObject, posts) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
@@ -41,7 +37,10 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.posts.$loaded(
     function(data) {
       $scope.loading = false;
-    }
+    },
+    function(error) {
+      $scope.loading = false;
+    }    
   );
   $scope.error = false;
   $scope.authObj = $firebaseAuth(ref);
@@ -204,6 +203,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
+  $scope.loading = true;
   $(".button-collapse").sideNav();
   $('.button-collapse').sideNav('hide');
   var ref = new Firebase("https://bridgecom.firebaseio.com");
@@ -212,7 +212,12 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.post.$loaded(
     function(data) {
       $scope.show = true;
-    }
+      $scope.loading = false;
+    },
+    function(error) {
+      $scope.none = true;
+      $scope.loading = false;
+    }  
   );
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
@@ -263,6 +268,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("User", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
+  $scope.loading = true;
   $(".button-collapse").sideNav();
   $('.button-collapse').sideNav('hide');
   var ref = new Firebase("https://bridgecom.firebaseio.com");
@@ -279,6 +285,14 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       $scope.authData = true;
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
       $scope.data = $firebaseObject(user);
+      $scope.data.$loaded(
+        function(data) {
+          $scope.show = false;
+        },
+        function(error) {
+          $scope.show = false;
+        }  
+      );
     } else {
       $scope.authData = false;
     }

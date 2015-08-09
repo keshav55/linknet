@@ -48,6 +48,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
   $(".button-collapse").sideNav();
+  $("#sidenav-overlay").hide();
   $scope.loading = true;
   $scope.posts.$loaded(
     function(data) {

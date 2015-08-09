@@ -125,10 +125,10 @@
            <ul class="collection">
               <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query)">
                 <img src="{{ post.picture }}" alt="" class="circle">
-                <span class="title">{{ post.title }}</span>
+                <a class="title" href="#/posts/:{{ post.$id }}">{{ post.title }}</span>
                 <p>By {{ post.author }} <br>
                 </p>
-                <a href="{{ post.link }}" class="secondary-content">Join</a>
+                <a href="{{ post.link }}" target="_blank" class="secondary-content">Join</a>
               </li>
             </ul>
         </div>

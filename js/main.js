@@ -21,6 +21,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
     .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
+    .when("/posts/:postId", {templateUrl: "partials/detail.html", controller: "Detail"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -190,5 +191,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   });
 
 
+
+}])
+.controller("Detail", ["$scope", "$firebaseAuth", "$location", "$stateParams", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject, $stateParams) {
+  $scope.post = $stateParams.petsId;
 
 }]);

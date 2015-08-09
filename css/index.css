@@ -49,6 +49,9 @@ input[type=range] {
     display: none;
 }
 .hide-false {
+    display: none !important;
+}
+.hide-false {
     display: block !important;
 }
 .card-action i {

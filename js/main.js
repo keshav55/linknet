@@ -132,15 +132,15 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-      user.child("verified").once("value", function(snapshot) {
-        if(snapshot.val()== false) {
+      user.once("value", function(snapshot) {
+        if(snapshot.child("verified").val()== false) {
           $location.path('/');
         }
       }, function (errorObject) {
         $location.path('/');
       });
       $scope.post = function(){
-        user.child("verified").once("value", function(snapshot) {
+        user.once("value", function(snapshot) {
           ref.child("posts").push({
             title: $scope.title,
             author: snapshot.child("name").val(),

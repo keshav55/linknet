@@ -87,8 +87,8 @@
                 </select>
             </div>
             <div class="input-field col s12 m3">
-                <input type="date" class="datepicker" name="endDate" required/>
-                <label class="active" for="endDate">Start</label>
+                <input type="date" class="datepicker" id="endDate" name="endDate" value="" required/> 
+                <label class="active" for="endDate">End</label>
             </div>
             <div class="input-field col s12 m3">
                 <select id="endTime" name="endTime" class="browser-default">
@@ -121,7 +121,7 @@
             </div>        
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">location_on</i>
-              <input name="location" type="text" class="validate" required>
+              <input name="location" id="location" type="text" class="validate" required>
               <label class="active" for="name">Location</label>
             </div>
             <div class="input-field col s12 m6">
@@ -144,7 +144,7 @@
             </div>
             <div class="input-field col s12 m12">
               <i class="material-icons prefix">subject</i>
-              <textarea name="description" class="materialize-textarea" length="200" ></textarea>
+              <textarea id="description" name="description" class="materialize-textarea" length="200" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>

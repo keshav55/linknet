@@ -48,7 +48,13 @@ input[type=range] {
 #alert {
     display: none;
 }
-.hide-false {
+.show-true {
+    display: block !important;
+}
+.show-false {
+    display: none !important;
+}
+.hide-true {
     display: none !important;
 }
 .hide-false {

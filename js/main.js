@@ -146,7 +146,8 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   });
   $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15 // Creates a dropdown of 15 years to control year
+      selectYears: 15,
+      format: 'mm dd yyyy' // Creates a dropdown of 15 years to control year
   });
   $('#us').locationpicker({
     location: {latitude: 37.5482697, longitude: -121.98857190000001}, 

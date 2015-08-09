@@ -22,6 +22,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Blog
     .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
     .when("/posts/:postId", {templateUrl: "partials/detail.html", controller: "Detail"})
+    .when("/organizations/:userId", {templateUrl: "partials/user.html", controller: "User"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -200,6 +201,17 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 
 }])
 .controller("Detail", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
+  $scope.params = $routeParams;
+  var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
+  $scope.post = $firebaseObject(data);
+  $scope.post.$loaded(
+    function(data) {
+      $scope.show = true;
+    }
+  );
+  
+}])
+.controller("User", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
   var data = new Firebase("https://bridgecom.firebaseio.com/posts/"+$route.current.params.postId);
   $scope.post = $firebaseObject(data);

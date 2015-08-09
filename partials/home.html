@@ -132,11 +132,12 @@
                 <img src="{{ post.picture }}" alt="" class="circle">
                 <a class="title" href="#/posts/{{ post.$id }}">{{ post.title }}</a>
                 <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br>
-                <i>{{ post.date }}</i>>
-                </p>
+                <i>{{ post.date }}</i>
+                
                 <blockquote>
                   {{ post.location }}
                 </blockquote>
+                </p>
                 <span class="secondary-content">{{ post.tags }} </a>
               </li>
             </ul>

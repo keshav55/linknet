@@ -135,10 +135,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       // Attach an asynchronous callback to read the data at our posts reference
       user.once("value", function(snapshot) {
         if(snapshot.val()== false) {
-          alert("E");
           $location.path('/');
-        } else {
-          alert("D");
         }
       }, function (errorObject) {
         $location.path('/');

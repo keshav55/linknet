@@ -64,7 +64,9 @@ input[type=range] {
     font-size: inherit !important;
 }
 .side-nav {
-    color: #fff !important;
     background-color: #333;
+}
+.side-nav a {
+    color: #fff;
 
 }

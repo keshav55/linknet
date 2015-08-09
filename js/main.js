@@ -131,9 +131,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.authData = true;
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
-      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid+"/verified");
+      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
       // Attach an asynchronous callback to read the data at our posts reference
-      user.once("value", function(snapshot) {
+      user.child("verified").once("value", function(snapshot) {
         if(snapshot.val()== false) {
           $location.path('/');
         }

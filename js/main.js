@@ -134,7 +134,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid+"/verified");
       // Attach an asynchronous callback to read the data at our posts reference
       user.once("value", function(snapshot) {
-        console.log(snapshot.val());
+        if(snapshot.val()== false) {
+          $location.path('/');
+        }
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
       });

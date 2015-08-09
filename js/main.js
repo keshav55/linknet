@@ -27,6 +27,11 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
 app.factory("posts", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database where we will store our data

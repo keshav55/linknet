@@ -216,7 +216,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
         $scope.loading = false;
        
       } else {
-        console.log("D");
+        console.log("")
         $scope.none = true;
         $scope.loading = false;        
       }
@@ -282,20 +282,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   var data = new Firebase("https://bridgecom.firebaseio.com/users/"+$route.current.params.userId);
   $scope.user = $firebaseObject(data);
   $scope.user.$loaded(
-    function(data) {
-      $scope.show = true;
-    }
-  );
-  $scope.authObj = $firebaseAuth(ref);
-  $scope.authObj.$onAuth(function(authData) {
-    if (authData) {
-      $scope.authData = true;
-      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-      $scope.data = $firebaseObject(user);
-      $scope.data.$loaded(
-        function(d) {
+    function(d) {
+
           if(d.image) {
-            console.log(d.image);
             $scope.show = true;
             $scope.loading = false;
            
@@ -303,12 +292,18 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
             $scope.none = true;
             $scope.loading = false;        
           }
-        },
-        function(error) {
+    },
+    function(error) {
           $scope.none = true;
           $scope.loading = false;
-        }  
-      );
+    }  
+  );
+  $scope.authObj = $firebaseAuth(ref);
+  $scope.authObj.$onAuth(function(authData) {
+    if (authData) {
+      $scope.authData = true;
+      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
+      $scope.data = $firebaseObject(user);
     } else {
       $scope.authData = false;
     }

@@ -117,7 +117,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.save = function(){
         ref.child("users").child(ref.getAuth().uid).update({
           name: $scope.data.name, 
-          image: $scope.data.image,
+          image: $("#image").attr("src"),
           description: $scope.data.description, 
           phone: $scope.data.phone
         });      

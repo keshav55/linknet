@@ -30,59 +30,61 @@
   </div>
   <div class="container">    
      <br/>
-     <div class="card" >
-                <div class="card-image">
-                    <img src="{{ post.picture }}">
-                    <span class="card-title">{{ post.title }}</span>
-                </div>
-                <div class="card-content">
-                    <ul class="collection">
-                        <li class="collection-item">
-                            <div>
-                                By <b>{{ post.author }}</b>
-                                <span class="secondary-content">
-                                    <i class="material-icons">account_circle</i>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>
-                                <i>{{ post.tags }}</i>
-                                <span class="secondary-content">
-                                    <i class="material-icons">label</i>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>
-                                {{ post.date }}
-                                <span class="secondary-content">
-                                    <i class="material-icons">today</i>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>
-                                <a target="_blank" href="https://www.google.com/maps/place/{{ post.location }}">
-                                    {{ post.location }}
-                                </a>
-                                <span class="secondary-content">
-                                    <i class="material-icons">location_on</i>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>
-                                {{ post.description }} 
-                                <span class="secondary-content">
-                                    <i class="material-icons">subject</i>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-action">
-                    <a href="{{ post.link }}" target="_blank">Join <i class="material-icons">trending_flat</i></a>
-                </div>
+     <div class="row">
+         <div class="card col m6" >
+                    <div class="card-image">
+                        <img src="{{ post.picture }}">
+                        <span class="card-title">{{ post.title }}</span>
+                    </div>
+                    <div class="card-content">
+                        <ul class="collection">
+                            <li class="collection-item">
+                                <div>
+                                    By <b>{{ post.author }}</b>
+                                    <span class="secondary-content">
+                                        <i class="material-icons">account_circle</i>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div>
+                                    <i>{{ post.tags }}</i>
+                                    <span class="secondary-content">
+                                        <i class="material-icons">label</i>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div>
+                                    {{ post.date }}
+                                    <span class="secondary-content">
+                                        <i class="material-icons">today</i>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div>
+                                    <a target="_blank" href="https://www.google.com/maps/place/{{ post.location }}">
+                                        {{ post.location }}
+                                    </a>
+                                    <span class="secondary-content">
+                                        <i class="material-icons">location_on</i>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div>
+                                    {{ post.description }} 
+                                    <span class="secondary-content">
+                                        <i class="material-icons">subject</i>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ post.link }}" target="_blank">Join <i class="material-icons">trending_flat</i></a>
+                    </div>
+         </div>
      </div>
   </div>

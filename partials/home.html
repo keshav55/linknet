@@ -118,8 +118,12 @@
     </div>
     <div class="row" id="feed">
         <div class="col s12 m6 offset-m3">
-            <div ng-show="!filtered.length" class="card-panel">
+            <div ng-show="!filtered.length && !loading" class="card-panel">
               <span>No posts available.
+              </span>
+            </div>
+            <div ng-show="loading" class="card-panel">
+              <span>Loading
               </span>
             </div>
            <ul class="collection">

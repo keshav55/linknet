@@ -46,7 +46,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
     if (authData) {
       $scope.authData = true;
       var verifiedref = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid+"/verified");
-      $scope.verified = $firebaseObject(user);
+      $scope.verified = $firebaseObject(verifiedref);
       console.log($scope.verified);
     } else {
       $scope.authData = false;

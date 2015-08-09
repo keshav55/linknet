@@ -136,22 +136,22 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
         if(snapshot.child("verified").val()== false) {
           $location.path('/');
         }
+        $scope.post = function(){
+            ref.child("posts").push({
+              title: $scope.title,
+              author: snapshot.child("name").val(),
+              authorid: authData.uid,
+              picture: $("#image").attr("src"),
+              location: $scope.location,
+              tags: $scope.tags,
+              date: $scope.startTime + " " + $scope.startDate + " to " + $scope.endTime + " " + $scope.endDate,
+              description: $scope.description
+            }); 
+        };
+
       }, function (errorObject) {
         $location.path('/');
       });
-      $scope.post = function(){
-        user.once("value", function(snapshot) {
-          ref.child("posts").push({
-            title: $scope.title,
-            author: snapshot.child("name").val(),
-            authorid: authData.uid,
-            picture: $("#image").attr("src"),
-            location: $scope.location,
-            date: $scope.startTime + " " + $scope.startDate + " to " + $scope.endTime + " " + $scope.endDate,
-            description: $scope.description
-          }); 
-        });  
-      };
 
     } else {
       $location.path('/');

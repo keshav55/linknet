@@ -58,7 +58,7 @@
                 <label class="active" for="startDate">Start</label>
             </div>
             <div class="input-field col s12 m3">
-                <select name="startTime" id="startTime" class="browser-default">
+                <select name="startTime" ng-model="startTime" class="browser-default">
                       <option value="12 AM" >12 AM</option>
                       <option value="1 AM">1 AM</option>
                       <option value="2 AM">2 AM</option>
@@ -91,7 +91,7 @@
                 <label class="active" for="endDate">End</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="endTime" name="endTime" class="browser-default">
+                <select ng-model="endTime" name="endTime" class="browser-default">
                       <option value="12 AM" >12 AM</option>
                       <option value="1 AM">1 AM</option>
                       <option value="2 AM">2 AM</option>
@@ -125,7 +125,7 @@
               <label class="active" for="name">Location</label>
             </div>
             <div class="input-field col s12 m6">
-              <select name="tags" id="tags" class="browser-default">
+              <select name="tags" ng-model="tags" class="browser-default">
                 <option selected="true"value="Animals">Animals</option>
                 <option value="Art/Culture">Art/Culture</option>
                 <option value="Children">Children</option>

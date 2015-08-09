@@ -123,16 +123,15 @@
               </span>
             </div>
            <ul class="collection">
-              <li class="collection-item avatar">
+              <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query)">
                 <img src="{{ post.picture }}" alt="" class="circle">
                 <span class="title">{{ post.title }}</span>
                 <p>By {{ post.author }} <br>
-                   {{ post.location }}
+                   <i>{{ post.location }}</i>
                 </p>
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
               </li>
             </ul>
-
         </div>
     </div>
   </div>

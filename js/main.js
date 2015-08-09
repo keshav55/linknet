@@ -20,7 +20,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
     // Blog
-    .when("/post", {templateUrl: "partials/post.html", controller: "PostCtrl"})
+    .when("/post", {templateUrl: "partials/post.html", controller: "ProfileCtrl"})
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
@@ -132,7 +132,13 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-
+      user.child("verified").once("value", function(snapshot) {
+        if(snapshot.val()== false) {
+          $location.path('/');
+        }
+      }, function (errorObject) {
+        $location.path('/');
+      });
       $scope.post = function(){
         user.child("verified").once("value", function(snapshot) {
           ref.child("posts").push({

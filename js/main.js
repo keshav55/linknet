@@ -160,6 +160,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
               picture: $("#image").attr("src"),
               location: $scope.location,
               tags: $scope.tags,
+              link: $scope.link,
               date: $scope.startTime + " on " + document.getElementById("startDate").value + " to " + $scope.endTime + " on " + document.getElementById("endDate").value,
               description: $scope.description
             }, function(error) {

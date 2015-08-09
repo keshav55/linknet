@@ -117,7 +117,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.save = function(){
         ref.child("users").child(ref.getAuth().uid).update({
           name: $scope.data.name, 
-          image: $("#image").attr("src"),
+          image: $scope.data.image,
           description: $scope.data.description, 
           phone: $scope.data.phone
         });      
@@ -159,12 +159,17 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       }
   });
   $scope.post = function(){
-        ref.child("posts").child(ref.getAuth().uid).update({
-          name: $scope.data.name, 
-          image: $("#image").attr("src"),
-          description: $scope.data.description, 
-          phone: $scope.data.phone
-        });      
+    ref.child("posts").push({
+      title: $("#title").val(),
+      author: name,
+      picture: $("#image").attr("src"),
+      location: $("#location").val(),
+      date: $("#startTime").val()+ " " +$("#startDate").val() + " to " + $("#endTime").val()+ " " +$("#endDate").val(),
+      needed: $("#number").val(),
+      volunteers: 'none',
+      affiliates: $("#affiliates").val(),
+      description: $("#description").val()
+    });   
   }
 
 

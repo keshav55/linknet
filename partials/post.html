@@ -149,7 +149,7 @@
             </div>
           </div>
           <div id="us"></div>
-          <a id="post" href="#" class="waves-effect waves-green btn">Post</a>
+          <button ng-hide="postForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="save()" ng-disabled="profileForm.name.$error.required || profileForm.phone.$error.required || profileForm.description.$error.required || profileForm.image.$error.required" ng-click="post()" class="waves-effect waves-green btn">Save</button>
         </form>
      </div>
   </div>

@@ -144,7 +144,19 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       $location.path('/');
     }
   });
+  $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+  $('#us').locationpicker({
+    location: {latitude: 37.5482697, longitude: -121.98857190000001}, 
+    radius: 0,
+    enableAutocomplete: true,
+    inputBinding: {
 
+          locationNameInput: $('#location')
+      }
+  });
   $scope.post = function(){
         ref.child("posts").child(ref.getAuth().uid).update({
           name: $scope.data.name, 

@@ -287,10 +287,12 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       $scope.data = $firebaseObject(user);
       $scope.data.$loaded(
         function(data) {
-          $scope.show = false;
+          $scope.show = true;
+          $scope.loading = false;
         },
         function(error) {
-          $scope.show = false;
+          $scope.none = true;
+          $scope.loading = false;
         }  
       );
     } else {

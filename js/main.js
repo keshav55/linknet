@@ -37,7 +37,7 @@ app.factory("posts", ["$firebaseArray",
 /**
  * Controls all other Pages
  */
-app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope, $firebaseAuth, posts) {
+app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $firebaseAuth, $firebaseObject, posts) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
   $scope.error = false;
@@ -45,6 +45,9 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "posts", function($scope,
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       $scope.authData = true;
+      var verifiedref = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid+"/verified");
+      $scope.verified = $firebaseObject(user);
+      console.log($scope.verified);
     } else {
       $scope.authData = false;
     }

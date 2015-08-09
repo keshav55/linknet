@@ -158,11 +158,8 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
               date: $scope.startTime + " on " + document.getElementById("startDate").value + " to " + $scope.endTime + " on " + document.getElementById("endDate").value,
               description: $scope.description
             }, function(error) {
-              if (error) {
-                alert("Data could not be saved." + error);
-              } else {
+                alert("SHIT");
                 $location.path('/');
-              }
             }); 
         };
 

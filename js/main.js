@@ -293,9 +293,8 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
       var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
       $scope.data = $firebaseObject(user);
       $scope.data.$loaded(
-        function(data) {
-          if(data.image) {
-            console.log(data.image);
+        function(d) {
+          if(d.image) {
             $scope.show = true;
             $scope.loading = false;
            

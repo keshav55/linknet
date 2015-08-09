@@ -35,7 +35,7 @@
           <div class="row">
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">info_outline</i>
-              <input name="title" id="title" type="text" class="validate" required>
+              <input name="title" ng-model="title" type="text" class="validate" required>
               <label class="active" for="name">Title</label>
             </div>
             <div class="input-field col s12 m6">
@@ -149,7 +149,7 @@
             </div>
           </div>
           <div id="us"></div>
-          <button >Save</button>
+          <button ng-hide="postForm.title.$error.required" ng-click="post()" class="waves-effect waves-green btn">Save</button>
         </form>
      </div>
   </div>

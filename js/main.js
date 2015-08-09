@@ -150,7 +150,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
             ref.child("posts").push({
               title: $scope.title,
               author: snapshot.child("name").val(),
-              authorid: authData.uid,
+              authorid: snapshot.key(),
               picture: $("#image").attr("src"),
               location: $scope.location,
               tags: $scope.tags,

@@ -215,7 +215,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
 }])
 .controller("User", ["$scope", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
-  var data = new Firebase("https://bridgecom.firebaseio.com/users/"+$route.current.params.postId);
+  var data = new Firebase("https://bridgecom.firebaseio.com/users/"+$route.current.params.userId);
   $scope.user = $firebaseObject(data);
   $scope.user.$loaded(
     function(data) {

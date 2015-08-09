@@ -131,6 +131,7 @@
               <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query)">
                 <img src="{{ post.picture }}" alt="" class="circle">
                 <a class="title" href="#/posts/{{ post.$id }}">{{ post.title }}</a>
+                <hr>
                 <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br>
                 <i>{{ post.date }}</i>
                 

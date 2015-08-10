@@ -78,3 +78,11 @@ hr {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+.mobileShow { display: none;}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){ .mobileShow { display: inline;}}
+.mobileHide { display: inline;}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){  .mobileHide { display: none;}}

@@ -135,7 +135,7 @@
                   <div class="indeterminate"></div>
               </div>
             </div>
-           <ul class="collection">
+           <ul ng-show="filtered.length && !loading" class="collection">
               <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query) | reverse">
                 <div>
                   <img src="{{ post.picture }}" alt="" class="circle">

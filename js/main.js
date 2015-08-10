@@ -179,7 +179,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     }
   });
   if(postForm.title.$error.required || postForm.startDate.$error.required || postForm.endDate.$error.required || postForm.location.$error.required || postForm.description.$error.required || postForm.startTime.$error.required || postForm.endTime.$error.required || postForm.tags.$error.required || postForm.link.$error.required) {
-    $scope.show = true;
+    $scope.valid = true;
   }
   $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month

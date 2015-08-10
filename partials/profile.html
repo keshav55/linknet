@@ -59,13 +59,17 @@
                 </li>
               </ul>
             </div>    
-
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">code</i>
+              <input name="website" ng-model="data.website" type="url" class="validate" required>
+              <label class="active" for="website">Website</label>
+            </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">call</i>
               <input name="phone" ng-model="data.phone" type="tel" class="validate" required>
               <label class="active" for="phone">Phone Number</label>
             </div>
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <i class="material-icons prefix">subject</i>
               <textarea name="description" ng-model="data.description" class="materialize-textarea" length="200" required></textarea>
               <label class="active" for="description">Description</label>

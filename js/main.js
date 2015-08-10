@@ -81,6 +81,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
           email: authData.password.email,
           image: "http://keshav55.github.io/linknet/img/user.png",
           phone: "None",
+          website: "None",
           verified: false,
           description: "None"
         }, function(){
@@ -271,6 +272,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
           email: authData.password.email,
           image: "http://keshav55.github.io/linknet/img/user.png",
           phone: "None",
+          website: "None",
           verified: false,
           description: "None"
         }, function(){
@@ -280,7 +282,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     }).catch(function(error) {
       $("#regtitle").show();
     });  
-  };  
+  }; 
 }])
 .controller("User", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;
@@ -343,6 +345,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
           email: authData.password.email,
           image: "http://keshav55.github.io/linknet/img/user.png",
           phone: "None",
+          website: "None",
           verified: false,
           description: "None"
         }, function(){
@@ -352,5 +355,5 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     }).catch(function(error) {
       $("#regtitle").show();
     });  
-  };  
+  }; 
 }]);

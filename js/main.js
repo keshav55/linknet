@@ -38,7 +38,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
   $scope.posts.$loaded(
     function(data) {
       $scope.loading = false;
-      $('.tooltipped').tooltip({delay: 50});
 
     },
     function(error) {

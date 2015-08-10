@@ -161,6 +161,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
               endDate: document.getElementById("endDate").value,
               startDate: document.getElementById("startDate").value,
               startTime: $scope.startTime,
+              type: $scope.type,
               description: $scope.description
             }, function(error) {
                 window.location.replace("#/");

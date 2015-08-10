@@ -134,7 +134,7 @@
               <input name="link" ng-model="link" type="text" class="validate" required>
               <label class="active" for="name">Registration Link</label>
             </div>
-            <div class="input-field col s12">
+            <div class="input-field col s12 m6">
               <select name="tags" ng-model="tags" class="browser-default">
                 <option selected="true" value="Animals">Animals</option>
                 <option value="Art/Culture">Art/Culture</option>
@@ -152,6 +152,13 @@
                 <option value="Sports/Recreation">Sports</option>
               </select>
             </div>
+            <div class="input-field col s12 m6">
+              <select name="type" ng-model="type" class="browser-default">
+                <option selected="true" value="Volunteering">Volunteering</option>
+                <option value="Community Event">Community Event</option>
+                <option value="Open Positions">Open Positions</option>
+              </select>
+            </div>
             <div class="input-field col s12 m12">
               <i class="material-icons prefix">subject</i>
               <textarea ng-model="description" name="description" class="materialize-textarea" length="200" required></textarea>
@@ -159,7 +166,7 @@
             </div>
           </div>
           <div id="us"></div>
-          <button ng-hide="postForm.title.$error.required || postForm.startDate.$error.required || postForm.endDate.$error.required || postForm.location.$error.required || postForm.description.$error.required || postForm.startTime.$error.required || postForm.endTime.$error.required || postForm.tags.$error.required || postForm.link.$error.required" ng-disabled="postForm.title.$error.required || postForm.startDate.$error.required || postForm.endDate.$error.required || postForm.location.$error.required || postForm.description.$error.required || postForm.startTime.$error.required || postForm.endTime.$error.required || postForm.tags.$error.required || postForm.link.$error.required" ng-click="post()" class="waves-effect waves-green btn">Post</button>
+          <button ng-hide="postForm.title.$error.required || postForm.startDate.$error.required || postForm.endDate.$error.required || postForm.location.$error.required || postForm.description.$error.required || postForm.startTime.$error.required || postForm.endTime.$error.required || postForm.tags.$error.required || postForm.link.$error.required" ng-disabled="postForm.title.$error.required || postForm.startDate.$error.required || postForm.endDate.$error.required || postForm.location.$error.required || postForm.description.$error.required || postForm.startTime.$error.required || postForm.endTime.$error.required || postForm.tags.$error.required || postForm.link.$error.required || postForm.type.$error.required" ng-click="post()" class="waves-effect waves-green btn">Post</button>
         </form>
      </div>
   </div>

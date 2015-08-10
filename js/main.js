@@ -138,6 +138,7 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
   $scope.authObj = $firebaseAuth(ref);
   $scope.authData = true;
   $scope.tags = "Animals";
+  $scope.type = "Volunteering";
   $scope.startTime = "2 PM";
   $scope.endTime = "3 PM";
   $scope.authObj.$onAuth(function(authData) {

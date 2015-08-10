@@ -157,7 +157,10 @@ app.controller("PageCtrl", ["$scope", "$firebaseAuth", "$firebaseObject", "posts
               location: $scope.location,
               tags: $scope.tags,
               link: $scope.link,
-              date: $scope.startTime + " on " + document.getElementById("startDate").value + " to " + $scope.endTime + " on " + document.getElementById("endDate").value,
+              endTime: $scope.endTime,
+              endDate: document.getElementById("endDate").value,
+              startDate: document.getElementById("startDate").value,
+              startTime: $scope.startTime,
               description: $scope.description
             }, function(error) {
                 window.location.replace("#/");

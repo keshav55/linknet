@@ -131,11 +131,10 @@
               <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query) | reverse">
                 <img src="{{ post.picture }}" alt="" class="circle">
                 <a class="title" href="#/posts/{{ post.$id }}"><b>{{ post.title }}</b></a>
-                <p></p>
                 <br>
-                <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br><br/>
-                {{ post.date }}
-                <br><br/>
+                <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <br>
+                <span class="grey-text">{{ post.date }}</span>
+                <br>
                 {{ post.location }}
                 </p>
               </li>

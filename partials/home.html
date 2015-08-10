@@ -129,14 +129,19 @@
             </div>
            <ul class="collection">
               <li class="collection-item avatar" ng-repeat="post in filtered = (posts | filter:query) | reverse">
-                <img src="{{ post.picture }}" alt="" class="circle">
-                <a class="title" href="#/posts/{{ post.$id }}"><b>{{ post.title }}</b></a>
-                <p></p><br>
-                <p>By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a> <p></p>
-                <span class="grey-text">{{ post.date }}</span>
-                <p></p>
-                {{ post.location }}
-                </p>
+                <div>
+                  <img src="{{ post.picture }}" alt="" class="circle">
+                  <a class="title" href="#/posts/{{ post.$id }}"><b>{{ post.title }}</b></a>
+                  <br>
+                  <p>
+                    By <a href="#/organizations/{{ post.authorid }}">{{ post.author }}</a>
+                    <br>
+                    <span class="grey-text">{{ post.date }}</span>
+                    <br>
+                    <a class="secondary-content tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="material-icons">send</i></a>
+                    {{ post.location }}
+                  </p>
+                </div>
               </li>
             </ul>
         </div>

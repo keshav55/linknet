@@ -56,7 +56,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
       $scope.loading = false;
     }    
   );
-
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {

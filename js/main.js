@@ -32,14 +32,6 @@ app.filter('reverse', function() {
     return items.slice().reverse();
   };
 });
-app.factory("posts", ["$firebaseArray",
-  function($firebaseArray) {
-    // create a reference to the database where we will store our data
-    var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
-
-    return $firebaseArray(ref);
-  }
-]);
 app.factory("login", ["$firebaseAuth", "$scope",
   function($firebaseAuth, $scope) {
     return function(){
@@ -55,6 +47,14 @@ app.factory("login", ["$firebaseAuth", "$scope",
         });
     };
 
+  }
+]);
+app.factory("posts", ["$firebaseArray",
+  function($firebaseArray) {
+    // create a reference to the database where we will store our data
+    var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
+
+    return $firebaseArray(ref);
   }
 ]);
 app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", "login",

@@ -40,7 +40,7 @@ app.factory("posts", ["$firebaseArray",
     return $firebaseArray(ref);
   }
 ]);
-app.factory("login", ["$firebaseAuth", "$scope"
+app.factory("login", ["$firebaseAuth", "$scope",
   function($firebaseAuth, $scope) {
     return function(){
       var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
@@ -68,7 +68,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     $scope.posts.$loaded(
       function(data) {
         $scope.loading = false;
-
       },
       function(error) {
         $scope.loading = false;

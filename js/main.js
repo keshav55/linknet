@@ -40,75 +40,85 @@ app.factory("posts", ["$firebaseArray",
     return $firebaseArray(ref);
   }
 ]);
-app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
-  var ref = new Firebase("https://bridgecom.firebaseio.com");
-  $scope.posts = posts;
-  $scope.loading = true;
-  $scope.error = false;
-  $(".button-collapse").sideNav();
-  $('.button-collapse').sideNav('hide');
-  $scope.posts.$loaded(
-    function(data) {
-      $scope.loading = false;
+app.factory("login", ["$firebaseAuth", "$scope"
+  function($firebaseAuth, $scope) {
+    // create a reference to the database where we will store our data
+    var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
+    $scope.authObj = $firebaseAuth(ref);
+      $scope.authObj.$authWithPassword({
+        email: $scope.logemail,
+        password: $scope.logpass
+      }).then(function(authData) {
+        location.reload();
+      }).catch(function(error) {
+        $("#logtitle").show();
+      });
+  }
+]);
+app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", "login", 
+  function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
+    var ref = new Firebase("https://bridgecom.firebaseio.com");
+    $scope.posts = posts;
+    $scope.loading = true;
+    $scope.error = false;
+    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav('hide');
+    $scope.posts.$loaded(
+      function(data) {
+        $scope.loading = false;
 
-    },
-    function(error) {
-      $scope.loading = false;
-    }    
-  );
-  $scope.authObj = $firebaseAuth(ref);
-  $scope.authObj.$onAuth(function(authData) {
-    if (authData) {
-      $scope.authData = true;
-      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-      $scope.data = $firebaseObject(user);
-    } else {
-      $scope.authData = false;
-    }
-    $('.modal-trigger').leanModal();
-  });
-  $scope.login = function(){
-    $scope.authObj.$authWithPassword({
-      email: $scope.logemail,
-      password: $scope.logpass
-    }).then(function(authData) {
-      location.reload();
-    }).catch(function(error) {
-      $("#logtitle").show();
+      },
+      function(error) {
+        $scope.loading = false;
+      }    
+    );
+    $scope.authObj = $firebaseAuth(ref);
+    $scope.authObj.$onAuth(function(authData) {
+      if (authData) {
+        $scope.authData = true;
+        var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
+        $scope.data = $firebaseObject(user);
+      } else {
+        $scope.authData = false;
+      }
+      $('.modal-trigger').leanModal();
     });
-  };
-  $scope.register = function(){
-    $scope.authObj.$createUser({
-      email: $scope.regemail,
-      password: $scope.regpass
-    }).then(function(userData) {
-      return $scope.authObj.$authWithPassword({
+    $scope.login = function(){
+      login();
+    };
+    $scope.register = function(){
+      $scope.authObj.$createUser({
         email: $scope.regemail,
         password: $scope.regpass
-      });
-    }).then(function(authData) {
-        ref.child("users").child(authData.uid).set({
-          name: authData.password.email, 
-          email: authData.password.email,
-          image: "http://keshav55.github.io/linknet/img/user.png",
-          phone: "None",
-          website: "None",
-          verified: false,
-          description: "None"
-        }, function(){
-          location.reload();
+      }).then(function(userData) {
+        return $scope.authObj.$authWithPassword({
+          email: $scope.regemail,
+          password: $scope.regpass
         });
-      
-    }).catch(function(error) {
-      $("#regtitle").show();
-    });  
-  };
-  $scope.searchtop = function(){
-    $("html, body").animate({ scrollTop: 0 }, 100);
-    $( "#searchinput" ).focus();
-      return false;
-  };
-}])
+      }).then(function(authData) {
+          ref.child("users").child(authData.uid).set({
+            name: authData.password.email, 
+            email: authData.password.email,
+            image: "http://keshav55.github.io/linknet/img/user.png",
+            phone: "None",
+            website: "None",
+            verified: false,
+            description: "None"
+          }, function(){
+            location.reload();
+          });
+        
+      }).catch(function(error) {
+        $("#regtitle").show();
+      });  
+    };
+    $scope.searchtop = function(){
+      $("html, body").animate({ scrollTop: 0 }, 100);
+      $( "#searchinput" ).focus();
+        return false;
+    };
+  }
+])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $(".button-collapse").sideNav();

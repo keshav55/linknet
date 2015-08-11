@@ -18,7 +18,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.directive("scroll", function ($window) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
-             if (this.pageYOffset >= 100) {
+             if (this.pageYOffset >= 0) {
                  scope.boolChangeClass = true;
                  console.log('Scrolled below header.');
              } else {

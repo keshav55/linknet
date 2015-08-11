@@ -43,8 +43,8 @@ app.factory("posts", ["$firebaseArray",
 app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
-  $scope.date = $filter('date')(new Date(), 'MMMM dd, yyyy');
   $scope.loading = true;
+  $scope.error = false;
   $(".button-collapse").sideNav();
   $('.button-collapse').sideNav('hide');
   $scope.posts.$loaded(
@@ -56,7 +56,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
       $scope.loading = false;
     }    
   );
-  $scope.error = false;
+
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {

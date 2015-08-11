@@ -15,6 +15,20 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
+app.directive("scroll", function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+             if (this.pageYOffset >= 100) {
+                 scope.boolChangeClass = true;
+                 console.log('Scrolled below header.');
+             } else {
+                 scope.boolChangeClass = false;
+                 console.log('Header is in view.');
+             }
+            scope.$apply();
+        });
+    };
+});
 app.filter('reverse', function() {
   return function(items) {
     return items.slice().reverse();

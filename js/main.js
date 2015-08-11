@@ -51,13 +51,11 @@ app.config(['$routeProvider', function ($routeProvider) {
   $scope.posts.$loaded(
     function(data) {
       $scope.loading = false;
-
     },
     function(error) {
       $scope.loading = false;
     }    
   );
-
   $scope.authObj = $firebaseAuth(ref);
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
@@ -128,11 +126,9 @@ app.config(['$routeProvider', function ($routeProvider) {
   function readURL(input) {
           if (input.files && input.files[0]) {
               var reader = new FileReader();
-
               reader.onload = function (e) {
                   $('#image').attr('src', e.target.result);
               }
-
               reader.readAsDataURL(input.files[0]);
           }
   }
@@ -147,8 +143,6 @@ app.config(['$routeProvider', function ($routeProvider) {
           phone: $scope.data.phone
         });      
   };
-
-
 }])
 .controller("PostCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
@@ -225,9 +219,6 @@ app.config(['$routeProvider', function ($routeProvider) {
   $("#imgInp").change(function(){
       readURL(this);
   });
-
-
-
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;

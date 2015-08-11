@@ -68,31 +68,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     });
   };
   $scope.searchtop = function(){
-    $scope.authObj.$createUser({
-      email: $scope.regemail,
-      password: $scope.regpass
-    }).then(function(userData) {
-      return $scope.authObj.$authWithPassword({
-        email: $scope.regemail,
-        password: $scope.regpass
-      });
-    }).then(function(authData) {
-        ref.child("users").child(authData.uid).set({
-          name: authData.password.email, 
-          email: authData.password.email,
-          image: "http://keshav55.github.io/linknet/img/user.png",
-          phone: "None",
-          website: "None",
-          verified: false,
-          description: "None"
-        }, function(){
-          location.reload();
-        });
-      
-    }).catch(function(error) {
-      $("#regtitle").show();
-    });  
-  };
     $("html, body").animate({ scrollTop: 0 }, 100);
     $( "#searchinput" ).focus();
       return false;

@@ -145,8 +145,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
           phone: $scope.data.phone
         });      
   };
-
-
 }])
 .controller("PostCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
@@ -223,9 +221,6 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
   $("#imgInp").change(function(){
       readURL(this);
   });
-
-
-
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;

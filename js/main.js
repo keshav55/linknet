@@ -64,9 +64,10 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
       location.reload();
     }).catch(function(error) {
       $("#logtitle").show();
+
     });
   };
-  $scope.register = function(){
+  $scope.searchtop = function(){
     $scope.authObj.$createUser({
       email: $scope.regemail,
       password: $scope.regpass
@@ -91,6 +92,10 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     }).catch(function(error) {
       $("#regtitle").show();
     });  
+  };
+    $("html, body").animate({ scrollTop: 0 }, 100);
+    $( "#searchinput" ).focus();
+      return false;
   };
 }])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {

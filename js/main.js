@@ -42,21 +42,23 @@ app.factory("posts", ["$firebaseArray",
 ]);
 app.factory("login", ["$firebaseAuth", "$scope"
   function($firebaseAuth, $scope) {
-    // create a reference to the database where we will store our data
-    var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
-    $scope.authObj = $firebaseAuth(ref);
-      $scope.authObj.$authWithPassword({
-        email: $scope.logemail,
-        password: $scope.logpass
-      }).then(function(authData) {
-        location.reload();
-      }).catch(function(error) {
-        $("#logtitle").show();
-      });
+    return function(){
+      var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
+      $scope.authObj = $firebaseAuth(ref);
+        $scope.authObj.$authWithPassword({
+          email: $scope.logemail,
+          password: $scope.logpass
+        }).then(function(authData) {
+          location.reload();
+        }).catch(function(error) {
+          $("#logtitle").show();
+        });
+    };
+
   }
 ]);
 app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", "login", 
-  function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
+  function($scope, $filter, $firebaseAuth, $firebaseObject, posts, login) {
     var ref = new Firebase("https://bridgecom.firebaseio.com");
     $scope.posts = posts;
     $scope.loading = true;

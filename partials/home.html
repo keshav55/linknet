@@ -86,21 +86,12 @@
       <button ng-click="login()" class="modal-action waves-effect waves-green btn">Log In</button>
     </div>
   </div>
-  <div class="container">
-    <p></p>
-    <div class="row">
-        <div class="col s10 m7 offset-m2">
-              <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <input id="icon_prefix" ng-model="query.$" type="text" class="validate ng-pristine ng-valid ng-touched">
-                <label for="icon_prefix" class="">Event name, location, etc...</label>
-              </div>
-        </div>
-        <div class="col s2 m1">
-         <a class="btn-floating waves-effect waves-light grey darken-3" style="
-            margin-top: 14px;
-        "><i class="material-icons">settings</i></a>
-        </div>
+  <div id="search_modal" class="modal">
+    <div class="modal-content">
+      <h4>Search Filter</h4>
+      <div class="divider"></div>
+      <p></p>
+
         <div class="col s6 m4 offset-m2">
               <select ng-model="query.type" class="browser-default ng-pristine ng-untouched ng-valid">
                   <option value="">All Types</option>
@@ -127,6 +118,27 @@
                 <option value="Seniors">Seniors</option>
                 <option value="Sports/Recreation">Sports</option>
               </select> 
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+    </div>
+  </div>
+  <div class="container">
+    <p></p>
+    <div class="row">
+        <div class="col s10 m7 offset-m2">
+              <div class="input-field">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" ng-model="query.$" type="text" class="validate ng-pristine ng-valid ng-touched">
+                <label for="icon_prefix" class="">Event name, location, etc...</label>
+              </div>
+        </div>
+        <div class="col s2 m1">
+          <a class="btn-floating waves-effect waves-light grey darken-3 modal-trigger" href="#search_modal" style="margin-top: 14px;">
+            <i class="material-icons">settings</i>
+          </a>
         </div>
     </div>
     <hr>

@@ -14,8 +14,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/profile", {templateUrl: "partials/profile.html", controller: "ProfileCtrl"})
 
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
-}]);
-app.directive("scroll", function ($window) {
+}])
+.directive("scroll", function ($window) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
              if (this.pageYOffset >= 200) {
@@ -26,100 +26,91 @@ app.directive("scroll", function ($window) {
             scope.$apply();
         });
     };
-});
-app.filter('reverse', function() {
+})
+.filter('reverse', function() {
   return function(items) {
     return items.slice().reverse();
   };
-});
-app.factory("login", ["$firebaseAuth", "$scope",
-  function($firebaseAuth, $scope) {
-    return function(){
-      var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
-      $scope.authObj = $firebaseAuth(ref);
-        $scope.authObj.$authWithPassword({
-          email: $scope.logemail,
-          password: $scope.logpass
-        }).then(function(authData) {
-          location.reload();
-        }).catch(function(error) {
-          $("#logtitle").show();
-        });
-    };
-
-  }
-]);
-app.factory("posts", ["$firebaseArray",
+})
+.factory("posts", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database where we will store our data
     var ref = new Firebase("https://bridgecom.firebaseio.com/posts");
 
     return $firebaseArray(ref);
   }
-]);
-app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", "login",
-  function($scope, $filter, $firebaseAuth, $firebaseObject, posts, login) {
-    var ref = new Firebase("https://bridgecom.firebaseio.com");
-    $scope.posts = posts;
-    $scope.loading = true;
-    $scope.error = false;
-    $(".button-collapse").sideNav();
-    $('.button-collapse').sideNav('hide');
-    $scope.posts.$loaded(
-      function(data) {
-        $scope.loading = false;
-      },
-      function(error) {
-        $scope.loading = false;
-      }    
-    );
-    $scope.authObj = $firebaseAuth(ref);
-    $scope.authObj.$onAuth(function(authData) {
-      if (authData) {
-        $scope.authData = true;
-        var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
-        $scope.data = $firebaseObject(user);
-      } else {
-        $scope.authData = false;
-      }
-      $('.modal-trigger').leanModal();
+])
+.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
+  var ref = new Firebase("https://bridgecom.firebaseio.com");
+  $scope.posts = posts;
+  $scope.date = $filter('date')(new Date(), 'MMMM dd, yyyy');
+  $scope.loading = true;
+  $scope.error = false;
+  $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav('hide');
+  $scope.posts.$loaded(
+    function(data) {
+      $scope.loading = false;
+
+    },
+    function(error) {
+      $scope.loading = false;
+    }    
+  );
+
+  $scope.authObj = $firebaseAuth(ref);
+  $scope.authObj.$onAuth(function(authData) {
+    if (authData) {
+      $scope.authData = true;
+      var user = new Firebase("https://bridgecom.firebaseio.com/users/"+authData.uid);
+      $scope.data = $firebaseObject(user);
+    } else {
+      $scope.authData = false;
+    }
+    $('.modal-trigger').leanModal();
+  });
+  $scope.login = function(){
+    $scope.authObj.$authWithPassword({
+      email: $scope.logemail,
+      password: $scope.logpass
+    }).then(function(authData) {
+      location.reload();
+    }).catch(function(error) {
+      $("#logtitle").show();
     });
-    $scope.login = function(){
-      login();
-    };
-    $scope.register = function(){
-      $scope.authObj.$createUser({
+  };
+  $scope.register = function(){
+    $scope.authObj.$createUser({
+      email: $scope.regemail,
+      password: $scope.regpass
+    }).then(function(userData) {
+      return $scope.authObj.$authWithPassword({
         email: $scope.regemail,
         password: $scope.regpass
-      }).then(function(userData) {
-        return $scope.authObj.$authWithPassword({
-          email: $scope.regemail,
-          password: $scope.regpass
+      });
+    }).then(function(authData) {
+        ref.child("users").child(authData.uid).set({
+          name: authData.password.email, 
+          email: authData.password.email,
+          image: "http://keshav55.github.io/linknet/img/user.png",
+          phone: "None",
+          website: "None",
+          verified: false,
+          description: "None"
+        }, function(){
+          location.reload();
         });
-      }).then(function(authData) {
-          ref.child("users").child(authData.uid).set({
-            name: authData.password.email, 
-            email: authData.password.email,
-            image: "http://keshav55.github.io/linknet/img/user.png",
-            phone: "None",
-            website: "None",
-            verified: false,
-            description: "None"
-          }, function(){
-            location.reload();
-          });
-        
-      }).catch(function(error) {
-        $("#regtitle").show();
-      });  
-    };
-    $scope.searchtop = function(){
-      $("html, body").animate({ scrollTop: 0 }, 100);
-      $( "#searchinput" ).focus();
-        return false;
-    };
-  }
-])
+      
+    }).catch(function(error) {
+      $("#regtitle").show();
+    });  
+  };
+  $scope.searchtop = function(){
+    $("html, body").animate({ scrollTop: 0 }, 100);
+    $( "#searchinput" ).focus();
+      return false;
+  };
+}])
 .controller("ProfileCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $(".button-collapse").sideNav();
@@ -156,6 +147,8 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
           phone: $scope.data.phone
         });      
   };
+
+
 }])
 .controller("PostCtrl", ["$scope", "$firebaseAuth", "$location", "$firebaseObject", function($scope, $firebaseAuth, $location, $firebaseObject) {
   var ref = new Firebase("https://bridgecom.firebaseio.com");
@@ -232,6 +225,9 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
   $("#imgInp").change(function(){
       readURL(this);
   });
+
+
+
 }])
 .controller("Detail", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;

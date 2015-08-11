@@ -44,9 +44,9 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
   var ref = new Firebase("https://bridgecom.firebaseio.com");
   $scope.posts = posts;
   $scope.date = $filter('date')(new Date(), 'MMMM dd, yyyy');
+  $scope.loading = true;
   $(".button-collapse").sideNav();
   $('.button-collapse').sideNav('hide');
-  $scope.loading = true;
   $scope.posts.$loaded(
     function(data) {
       $scope.loading = false;
@@ -76,8 +76,33 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
       location.reload();
     }).catch(function(error) {
       $("#logtitle").show();
-
     });
+  };
+  $scope.register = function(){
+    $scope.authObj.$createUser({
+      email: $scope.regemail,
+      password: $scope.regpass
+    }).then(function(userData) {
+      return $scope.authObj.$authWithPassword({
+        email: $scope.regemail,
+        password: $scope.regpass
+      });
+    }).then(function(authData) {
+        ref.child("users").child(authData.uid).set({
+          name: authData.password.email, 
+          email: authData.password.email,
+          image: "http://keshav55.github.io/linknet/img/user.png",
+          phone: "None",
+          website: "None",
+          verified: false,
+          description: "None"
+        }, function(){
+          location.reload();
+        });
+      
+    }).catch(function(error) {
+      $("#regtitle").show();
+    });  
   };
   $scope.searchtop = function(){
     $("html, body").animate({ scrollTop: 0 }, 100);
@@ -274,7 +299,7 @@ app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObje
     }).catch(function(error) {
       $("#regtitle").show();
     });  
-  }; 
+  };
 }])
 .controller("User", ["$scope", "$firebaseAuth", "$route","$location", "$routeParams", "$firebaseObject", function($scope, $firebaseAuth, $route, $location, $routeParams, $firebaseObject) {
   $scope.params = $routeParams;

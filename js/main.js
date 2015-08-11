@@ -58,7 +58,7 @@ app.factory("login", ["$firebaseAuth", "$scope",
   }
 ]);
 app.controller("PageCtrl", ["$scope", "$filter", "$firebaseAuth", "$firebaseObject", "posts", "login",
-  function($scope, $filter, $firebaseAuth, $firebaseObject, posts) {
+  function($scope, $filter, $firebaseAuth, $firebaseObject, posts, login) {
     var ref = new Firebase("https://bridgecom.firebaseio.com");
     $scope.posts = posts;
     $scope.loading = true;

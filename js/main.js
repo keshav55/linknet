@@ -18,12 +18,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.directive("scroll", function ($window) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
-             if (this.pageYOffset >= 0) {
-                 scope.boolChangeClass = true;
-                 console.log('Scrolled below header.');
+             if (this.pageYOffset >= 200) {
+                 scope.buttonshow = true;
              } else {
-                 scope.boolChangeClass = false;
-                 console.log('Header is in view.');
+                 scope.buttonshow = false;
              }
             scope.$apply();
         });
